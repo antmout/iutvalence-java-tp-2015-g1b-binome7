@@ -3,14 +3,19 @@ package fr.iutvalence.ardechois.anerouge;
 /**
  * Représentation de la grille du jeu.
  *
- * @author chayc
- * @version TODO
+ * @author chayc & moutona
+ * @version 1.0
  */
 public class Grille {
-    /* TODO JAVADOC. */
+    /**
+     * Nombre de colonnes de la grille <b>par défaut</b>.
+     */
     public static final int NOMBRE_COLONNES_DEFAUT = 10;
-    /* TODO JAVADOC. */
+    /**
+     * Nombre de lignes de la grille <b>par défaut</b>.
+     */
     public static final int NOMBRE_LIGNES_DEFAUT   = 10;
+    
     /* TODO JAVADOC. */
     /* TODO final ? */
     private Case[][] grille;
