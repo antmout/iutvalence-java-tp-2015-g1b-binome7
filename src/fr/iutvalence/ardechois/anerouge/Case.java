@@ -6,10 +6,5 @@ package fr.iutvalence.ardechois.anerouge;
  * @author chayc et moutona
  * @version 0.1
  */
-public class Case
-{
-	public Case()
-	{
-
-	}
+public class Case {
 }
