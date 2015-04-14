@@ -4,7 +4,7 @@ package fr.iutvalence.ardechois.klotski;
  * Position of an object.
  * 
  * @author chayc
- * @version 0.02
+ * @version 0.03
  */
 public class Position
 {

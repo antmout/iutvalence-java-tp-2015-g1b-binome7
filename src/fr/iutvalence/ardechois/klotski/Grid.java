@@ -15,7 +15,10 @@ public class Grid
 
 	/** Set of Compartment that create the game grid. */
 	private final Piece[][] grid;
+	
+	/** Number of the grid lines.*/
 	private final int lineNumber;
+	/** Number of the grid columns.*/
 	private final int columnNumber;
 
 	/** Set the grid with default values. */
@@ -24,7 +27,8 @@ public class Grid
 		this(Grid.DEFAULT_COLUMNS_NUMBER, Grid.DEFAULT_LINES_NUMBER);
 	}
 
-	/** Set the grid with given column and line numbers. */
+	/** Set the grid with given column and line numbers. 
+	 */
 	public Grid(int columnNumber, int lineNumber)
 	{
 		this.columnNumber = columnNumber;
@@ -42,23 +46,23 @@ public class Grid
 
 	/**
 	 * String representation of the grid.
+	 * Using String Builder.
 	 */
 	@Override
 	public String toString()
-	{
-		// TODO with string buffer.
-		
+	{		
 		String gridString = "";
+		StringBuilder gridStringBuf = new StringBuilder(gridString);
 
 		for (int lineIndex = 0; lineIndex < lineNumber; lineIndex++)
 		{
 			for (int columnIndex = 0; columnIndex < columnNumber; columnIndex++)
 			{
-				gridString += " ";
+				gridStringBuf.append("_ ");
 			}
-			gridString += System.getProperty("line.separator");
+			gridStringBuf.append("\n");
 		}
-
+		System.out.println(gridStringBuf);
 		return gridString;
 	}
 

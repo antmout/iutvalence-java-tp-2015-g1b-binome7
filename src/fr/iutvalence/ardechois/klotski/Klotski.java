@@ -4,7 +4,7 @@ package fr.iutvalence.ardechois.klotski;
  * Game class, launch the game with start.
  * 
  * @author chayc
- * @version 0.02
+ * @version 0.03
  */
 public class Klotski
 {

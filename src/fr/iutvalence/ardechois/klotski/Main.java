@@ -4,7 +4,7 @@ package fr.iutvalence.ardechois.klotski;
  * Allow to launch the application.
  * 
  * @author chayc
- * @version 0.02
+ * @version 0.03
  */
 public class Main
 {
