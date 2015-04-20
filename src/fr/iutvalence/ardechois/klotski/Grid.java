@@ -35,6 +35,7 @@ public class Grid
 		this.lineNumber = lineNumber;
 
 		this.grid = new Piece[this.columnNumber][this.lineNumber];
+		/* TODO Useless! Previous line already made that. */
 		for (int lineIndex = 0; lineIndex < this.lineNumber; lineIndex++)
 		{
 			for (int columnIndex = 0; columnIndex < this.columnNumber; columnIndex++)
@@ -44,16 +45,10 @@ public class Grid
 		}
 	}
 
-	/**
-	 * String representation of the grid.
-	 * Using String Builder.
-	 */
 	@Override
 	public String toString()
 	{		
-		String gridString = "";
-		StringBuilder gridStringBuf = new StringBuilder(gridString);
-
+		StringBuilder gridStringBuf = new StringBuilder();
 		for (int lineIndex = 0; lineIndex < lineNumber; lineIndex++)
 		{
 			for (int columnIndex = 0; columnIndex < columnNumber; columnIndex++)
@@ -62,15 +57,10 @@ public class Grid
 			}
 			gridStringBuf.append("\n");
 		}
-		System.out.println(gridStringBuf);
-		return gridString;
+		return gridStringBuf.toString();
 	}
 
-	/**
-	 * Create a piece with his left up position.
-	 * 
-	 * @param leftUpPosition
-	 */
+	/** Create a piece with his left up position. */
 	public void createPiece(Position leftUpPosition)
 	{
 		grid[leftUpPosition.getX()][leftUpPosition.getY()] = new Piece();

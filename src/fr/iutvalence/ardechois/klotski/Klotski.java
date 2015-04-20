@@ -2,7 +2,7 @@ package fr.iutvalence.ardechois.klotski;
 
 /**
  * Game class, launch the game with start.
- * 
+ *
  * @author chayc
  * @version 0.03
  */
@@ -18,6 +18,7 @@ public class Klotski
 	 */
 	public Klotski()
 	{
+		/* TODO Player have not at least a nickname? */
 		player = new Player();
 		grid = new Grid();
 	}
