@@ -4,7 +4,7 @@ package fr.iutvalence.ardechois.klotski;
  * Player that is currently playing the game.
  * 
  * @author chayc
- * @version 0.03
+ * @version 0.04
  */
 public class Player
 {
