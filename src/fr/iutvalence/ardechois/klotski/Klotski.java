@@ -16,10 +16,9 @@ public class Klotski
 	/**
 	 * Create a new game.
 	 */
-	public Klotski()
+	public Klotski(String playerName)
 	{
-		/* TODO Player have not at least a nickname? */
-		player = new Player();
+		player = new Player("Player");
 		grid = new Grid();
 	}
 

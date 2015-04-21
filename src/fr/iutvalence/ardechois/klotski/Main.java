@@ -8,11 +8,14 @@ package fr.iutvalence.ardechois.klotski;
  */
 public class Main
 {
-	/* TODO Utility class should have a private constructor to be only called by their static methods. */
+	/*
+	 * TODO Utility class should have a private constructor to be only called by
+	 * their static methods.
+	 */
 	/** Main method, start of the application. */
 	public static void main(String[] args)
 	{
-		Klotski game = new Klotski();
+		Klotski game = new Klotski("Player");
 		game.start();
 	}
 }

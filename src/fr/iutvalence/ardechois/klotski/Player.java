@@ -8,11 +8,6 @@ package fr.iutvalence.ardechois.klotski;
  */
 public class Player
 {
-	/* TODO Should not be here. */
-	/**
-	 * Players that don't want name has a default player name.
-	 */
-	public static final String DEFAULT_PLAYER_NAME = "Player";
 	/**
 	 * Default score : max integer that Java can handle.
 	 */
@@ -23,19 +18,11 @@ public class Player
 	/** Best score of the player. */
 	private int bestScore;
 
-	// TODO Use the second constructor to express this one.
-	/** Create a player with the default player name and a default score. */
-	public Player()
-	{
-		this.name = DEFAULT_PLAYER_NAME;
-		this.bestScore = DEFAULT_BEST_SCORE;
-	}
-
 	/** Create a player with a given name. */
 	public Player(String name)
 	{
 		this.name = name;
-		// bestScore is not initialized?
+		this.bestScore = DEFAULT_BEST_SCORE;
 	}
 
 	/** Get the player best score. */

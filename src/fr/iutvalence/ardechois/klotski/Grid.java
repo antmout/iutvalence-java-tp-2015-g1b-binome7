@@ -15,10 +15,10 @@ public class Grid
 
 	/** Set of Compartment that create the game grid. */
 	private final Piece[][] grid;
-	
-	/** Number of the grid lines.*/
+
+	/** Number of the grid lines. */
 	private final int lineNumber;
-	/** Number of the grid columns.*/
+	/** Number of the grid columns. */
 	private final int columnNumber;
 
 	/** Set the grid with default values. */
@@ -27,7 +27,8 @@ public class Grid
 		this(Grid.DEFAULT_COLUMNS_NUMBER, Grid.DEFAULT_LINES_NUMBER);
 	}
 
-	/** Set the grid with given column and line numbers. 
+	/**
+	 * Set the grid with given column and line numbers.
 	 */
 	public Grid(int columnNumber, int lineNumber)
 	{
@@ -35,19 +36,11 @@ public class Grid
 		this.lineNumber = lineNumber;
 
 		this.grid = new Piece[this.columnNumber][this.lineNumber];
-		/* TODO Useless! Previous line already made that. */
-		for (int lineIndex = 0; lineIndex < this.lineNumber; lineIndex++)
-		{
-			for (int columnIndex = 0; columnIndex < this.columnNumber; columnIndex++)
-			{
-				this.grid[columnIndex][lineIndex] = null;
-			}
-		}
 	}
 
 	@Override
 	public String toString()
-	{		
+	{
 		StringBuilder gridStringBuf = new StringBuilder();
 		for (int lineIndex = 0; lineIndex < lineNumber; lineIndex++)
 		{
