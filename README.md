@@ -1,12 +1,6 @@
 Klotski
 =======
 
-## Remarks
-
-- 04/10/2015:
-    - Work on your game!!! 
-    - Translate your "2" files…
-
 ## Changelog
 
 - Version 0.03 (14/04/2015):
