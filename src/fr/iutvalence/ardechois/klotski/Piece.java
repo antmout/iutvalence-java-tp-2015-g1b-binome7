@@ -14,9 +14,9 @@ public class Piece
 	public static final int DEFAULT_HEIGHT = 1;
 
 	/** Width of the piece. */
-	public final int width;
+	private final int width;
 	/** Height of the piece. */
-	public final int height;
+	private final int height;
 
 	/**
 	 * Create a piece with default width and height.
@@ -25,5 +25,25 @@ public class Piece
 	{
 		this.width = DEFAULT_WIDTH;
 		this.height = DEFAULT_HEIGHT;
+	}
+
+	/**
+	 * Get the piece width.
+	 * 
+	 * @return width
+	 */
+	public int getWidth()
+	{
+		return this.width;
+	}
+
+	/**
+	 * Get the piece height.
+	 * 
+	 * @return height
+	 */
+	public int getHeight()
+	{
+		return this.height;
 	}
 }

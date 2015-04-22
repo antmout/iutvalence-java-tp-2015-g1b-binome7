@@ -27,6 +27,7 @@ public class Klotski
 	 */
 	public void start()
 	{
+		System.out.println(player);
 		System.out.println(grid);
 	}
 }

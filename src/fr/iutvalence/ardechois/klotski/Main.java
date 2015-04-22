@@ -12,6 +12,7 @@ public class Main
 	{
 		//not called
 	}
+
 	/** Main method, start of the application. */
 	public static void main(String[] args)
 	{

@@ -25,7 +25,11 @@ public class Player
 		this.bestScore = DEFAULT_BEST_SCORE;
 	}
 
-	/** Get the player best score. */
+	/**
+	 * Get the player best score.
+	 * 
+	 * @return bestScore
+	 */
 	public int getBestScore()
 	{
 		return this.bestScore;
@@ -38,9 +42,30 @@ public class Player
 			this.bestScore = bestScore;
 	}
 
-	/** Get the player name. */
+	/**
+	 * Get the player name.
+	 * 
+	 * @return name
+	 */
 	public String getName()
 	{
 		return name;
+	}
+	
+	@Override
+	public String toString()
+	{
+		String playerString = this.name + ": ";
+		
+		if(this.bestScore == DEFAULT_BEST_SCORE)
+		{
+			playerString += "never finished yed.";
+		}
+		else
+		{
+			playerString += this.bestScore + ".";
+		}
+		
+		return playerString;
 	}
 }

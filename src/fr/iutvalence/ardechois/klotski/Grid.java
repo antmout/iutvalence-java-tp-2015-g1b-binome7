@@ -44,19 +44,41 @@ public class Grid
 		StringBuilder gridStringBuf = new StringBuilder();
 		for (int lineIndex = 0; lineIndex < lineNumber; lineIndex++)
 		{
+			// Create each line with the top and the center.
+			// The bottom of a line is the top of the next one.
 			for (int columnIndex = 0; columnIndex < columnNumber; columnIndex++)
 			{
-				gridStringBuf.append("_ ");
+				gridStringBuf.append("|---");
 			}
-			gridStringBuf.append("\n");
+			gridStringBuf.append("|\n");
+			for (int columnIndex = 0; columnIndex < columnNumber; columnIndex++)
+			{
+				gridStringBuf.append("|   ");
+			}
+			gridStringBuf.append("|\n");
 		}
+
+		// Close the last line.
+		for (int columnIndex = 0; columnIndex < columnNumber; columnIndex++)
+		{
+			gridStringBuf.append("|---");
+		}
+		gridStringBuf.append("|");
+
 		return gridStringBuf.toString();
 	}
 
 	/** Create a piece with his left up position. */
 	public void createPiece(Position leftUpPosition)
-	{
-		grid[leftUpPosition.getX()][leftUpPosition.getY()] = new Piece();
-
+	{		
+		Piece newCreatedPiece = new Piece();
+		
+		for(int lineIndex = 0; lineIndex < newCreatedPiece.getWidth(); lineIndex++)
+		{
+			for(int columnIndex = 0; columnIndex < newCreatedPiece.getHeight(); columnIndex++)
+			{
+				grid[leftUpPosition.getX() + lineIndex][leftUpPosition.getY() + columnIndex] = newCreatedPiece;
+			}
+		}
 	}
 }
