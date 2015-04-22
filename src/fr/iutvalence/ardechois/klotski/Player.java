@@ -8,11 +8,6 @@ package fr.iutvalence.ardechois.klotski;
  */
 public class Player
 {
-	/**
-	 * Default score : max integer that Java can handle.
-	 */
-	public static final int DEFAULT_BEST_SCORE = Integer.MAX_VALUE;
-
 	/** Name of the player. */
 	private final String name;
 	/** Best score of the player. */
@@ -22,7 +17,7 @@ public class Player
 	public Player(String name)
 	{
 		this.name = name;
-		this.bestScore = DEFAULT_BEST_SCORE;
+		this.bestScore = Integer.MAX_VALUE;
 	}
 
 	/**
