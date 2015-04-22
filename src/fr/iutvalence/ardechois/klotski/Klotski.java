@@ -18,6 +18,7 @@ public class Klotski
 	 */
 	public Klotski(String playerName)
 	{
+		/* TODO Why "Player"??? */
 		player = new Player("Player");
 		grid = new Grid();
 	}
