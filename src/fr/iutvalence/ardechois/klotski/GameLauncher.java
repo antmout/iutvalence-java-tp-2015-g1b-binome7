@@ -6,12 +6,10 @@ package fr.iutvalence.ardechois.klotski;
  * @author chayc
  * @version 0.04
  */
-public class Main
+public class GameLauncher
 {
-	private Main()
-	{
-		//not called
-	}
+	/* TODO JAVADOC. */
+	private GameLauncher() { /* CAN'T HAPPEN */ }
 
 	/** Main method, start of the application. */
 	public static void main(String[] args)
