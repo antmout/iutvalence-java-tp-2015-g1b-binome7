@@ -27,6 +27,11 @@ public class Piece
 		this.height = DEFAULT_HEIGHT;
 	}
 
+	/* TODO Other constructor for custom piece ? */
+
+	/* TODO Don't be so "scholar", your class have only two fields, very simples…
+	 * So why use "getWidth()" rather than only "width"?
+	 */
 	/**
 	 * Get the piece width.
 	 * 
