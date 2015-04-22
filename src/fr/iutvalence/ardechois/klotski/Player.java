@@ -55,17 +55,18 @@ public class Player
 	@Override
 	public String toString()
 	{
-		String playerString = this.name + ": ";
+		StringBuilder playerStringBuilder = new StringBuilder();
+		playerStringBuilder.append(this.name + ": ");
 		
 		if(this.bestScore == DEFAULT_BEST_SCORE)
 		{
-			playerString += "never finished yed.";
+			playerStringBuilder.append("never finished yed.");
 		}
 		else
 		{
-			playerString += this.bestScore + ".";
+			playerStringBuilder.append(this.bestScore + ".");
 		}
 		
-		return playerString;
+		return playerStringBuilder.toString();
 	}
 }
