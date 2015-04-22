@@ -36,6 +36,7 @@ public class Grid
 		this.lineNumber = lineNumber;
 
 		this.grid = new Piece[this.columnNumber][this.lineNumber];
+		// TODO Piece putted on the grid here?
 	}
 
 	@Override
@@ -53,6 +54,7 @@ public class Grid
 			gridStringBuf.append("|\n");
 			for (int columnIndex = 0; columnIndex < columnNumber; columnIndex++)
 			{
+				// TODO Is it normal if there is not Piece#toString call here?
 				gridStringBuf.append("|   ");
 			}
 			gridStringBuf.append("|\n");
@@ -68,6 +70,7 @@ public class Grid
 		return gridStringBuf.toString();
 	}
 
+	// TODO Improve this method.
 	/** Create a piece with his left up position. */
 	public void createPiece(Position leftUpPosition)
 	{		
