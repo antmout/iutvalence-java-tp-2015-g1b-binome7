@@ -2,17 +2,12 @@ package fr.iutvalence.ardechois.klotski;
 
 /**
  * Player that is currently playing the game.
- * 
+ *
  * @author chayc
  * @version 0.04
  */
 public class Player
 {
-	/**
-	 * Default score : max integer that Java can handle.
-	 */
-	public static final int DEFAULT_BEST_SCORE = Integer.MAX_VALUE;
-
 	/** Name of the player. */
 	private final String name;
 	/** Best score of the player. */
@@ -22,12 +17,12 @@ public class Player
 	public Player(String name)
 	{
 		this.name = name;
-		this.bestScore = DEFAULT_BEST_SCORE;
+		this.bestScore = Integer.MAX_VALUE;
 	}
 
 	/**
 	 * Get the player best score.
-	 * 
+	 *
 	 * @return bestScore
 	 */
 	public int getBestScore()
@@ -36,37 +31,30 @@ public class Player
 	}
 
 	/** Set the player best score. */
-	public void setBestScore(int bestScore)
+	public void setBestScore(int bestScore) throws NEGATIVE_SCORE
 	{
+		if(bestScore < 0)
+			throw new NEGATIVE_SCORE();
+		
 		if (bestScore < this.bestScore)
+		{
 			this.bestScore = bestScore;
+		}
 	}
 
 	/**
 	 * Get the player name.
-	 * 
+	 *
 	 * @return name
 	 */
 	public String getName()
 	{
 		return name;
 	}
-	
+
 	@Override
 	public String toString()
 	{
-		StringBuilder playerStringBuilder = new StringBuilder();
-		playerStringBuilder.append(this.name + ": ");
-		
-		if(this.bestScore == DEFAULT_BEST_SCORE)
-		{
-			playerStringBuilder.append("never finished yed.");
-		}
-		else
-		{
-			playerStringBuilder.append(this.bestScore + ".");
-		}
-		
-		return playerStringBuilder.toString();
+		return String.format("%s: %s.", name, (bestScore == Integer.MAX_VALUE) ? "never finished yed" : bestScore);
 	}
 }

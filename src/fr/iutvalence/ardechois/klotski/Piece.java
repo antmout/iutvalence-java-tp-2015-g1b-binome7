@@ -16,9 +16,9 @@ public class Piece
 	public static final int ID_LENGHT = 1;
 
 	/** Width of the piece. */
-	private final int width;
+	public final int width;
 	/** Height of the piece. */
-	private final int height;
+	public final int height;
 	
 	/** Unique Id of a piece. */
 	private final String id;
@@ -51,26 +51,6 @@ public class Piece
 		this.id = id;
 		this.width = width;
 		this.height = height;
-	}
-
-	/**
-	 * Get the piece width.
-	 * 
-	 * @return width
-	 */
-	public int getWidth()
-	{
-		return this.width;
-	}
-
-	/**
-	 * Get the piece height.
-	 * 
-	 * @return height
-	 */
-	public int getHeight()
-	{
-		return this.height;
 	}
 
 	/**

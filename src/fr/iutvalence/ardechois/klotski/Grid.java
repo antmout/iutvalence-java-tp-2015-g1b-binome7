@@ -67,6 +67,7 @@ public class Grid
 					gridStringBuf.append("|   ");
 				else
 					gridStringBuf.append("| " + grid[columnIndex][lineIndex].getId() + " ");
+				gridStringBuf.append("|   ");
 			}
 			gridStringBuf.append("|\n");
 		}
@@ -81,6 +82,7 @@ public class Grid
 		return gridStringBuf.toString();
 	}
 
+	
 	/**
 	 * Create a piece with its left up position and its size.
 	 * @param leftUpPosition
@@ -90,13 +92,13 @@ public class Grid
 	 * @throws INCORRECT_ID
 	 */
 	public void createPiece(Position leftUpPosition, String pieceId, int width, int height) throws INCORRECT_ID
-	{		
+	{
 		// TODO : check if the new piece don't override an old one.
 		Piece newCreatedPiece = new Piece(width, height, pieceId);
 		
-		for(int lineIndex = 0; lineIndex < newCreatedPiece.getWidth(); lineIndex++)
+		for(int lineIndex = 0; lineIndex < newCreatedPiece.width; lineIndex++)
 		{
-			for(int columnIndex = 0; columnIndex < newCreatedPiece.getHeight(); columnIndex++)
+			for(int columnIndex = 0; columnIndex < newCreatedPiece.height; columnIndex++)
 			{
 				grid[leftUpPosition.getX() + lineIndex][leftUpPosition.getY() + columnIndex] = newCreatedPiece;
 			}
