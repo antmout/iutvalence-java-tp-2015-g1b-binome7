@@ -1,5 +1,7 @@
 package fr.iutvalence.ardechois.klotski;
 
+import java.util.Scanner;
+
 /**
  * Allow to launch the application.
  * 
@@ -14,7 +16,16 @@ public class GameLauncher
 	/** Main method, start of the application. */
 	public static void main(String[] args)
 	{
-		Klotski game = new Klotski("Player");
+		String playerName;
+		
+		Scanner playerScanner = new Scanner(System.in);
+		
+		System.out.print("Entrer votre nom: ");
+		playerName = playerScanner.nextLine();
+		
+		Klotski game = new Klotski(playerName);
+		
+		playerScanner.close();
 		game.start();
 	}
 }

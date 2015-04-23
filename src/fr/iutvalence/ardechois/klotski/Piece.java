@@ -8,11 +8,6 @@ package fr.iutvalence.ardechois.klotski;
  */
 public class Piece
 {
-	/** Default width of a piece. */
-	public static final int DEFAULT_WIDTH = 1;
-	/** Default height of a piece. */
-	public static final int DEFAULT_HEIGHT = 1;
-	
 	public static final int ID_LENGHT = 1;
 
 	/** Width of the piece. */
@@ -22,17 +17,6 @@ public class Piece
 	
 	/** Unique Id of a piece. */
 	private final String id;
-
-	/**
-	 * Create a piece with default width and height and a given id.
-	 * @param id
-	 * @throws INCORRECT_ID
-	 */
-	public Piece(String id) throws INCORRECT_ID
-	{
-		this(Piece.DEFAULT_WIDTH, Piece.DEFAULT_HEIGHT, id);
-		// TODO : maybe remove this constructor, we always set the width and height.
-	}
 	
 	/**
 	 * Create a piece with given width and height and id.
