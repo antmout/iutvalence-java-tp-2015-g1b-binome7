@@ -67,7 +67,6 @@ public class Grid
 					gridStringBuf.append("|   ");
 				else
 					gridStringBuf.append("| " + grid[columnIndex][lineIndex].getId() + " ");
-				gridStringBuf.append("|   ");
 			}
 			gridStringBuf.append("|\n");
 		}
