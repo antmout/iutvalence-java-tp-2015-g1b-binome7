@@ -36,6 +36,16 @@ public class Grid
 		this.lineNumber = lineNumber;
 
 		this.grid = new Piece[this.columnNumber][this.lineNumber];
+		
+		try
+		{
+			createPiece(new Position(0, 0), "1", 2, 3);
+			createPiece(new Position(2, 0), "2", 4, 4);
+		} catch (INCORRECT_ID e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -53,7 +63,10 @@ public class Grid
 			gridStringBuf.append("|\n");
 			for (int columnIndex = 0; columnIndex < columnNumber; columnIndex++)
 			{
-				gridStringBuf.append("|   ");
+				if(grid[columnIndex][lineIndex] == null)
+					gridStringBuf.append("|   ");
+				else
+					gridStringBuf.append("| " + grid[columnIndex][lineIndex].getId() + " ");
 			}
 			gridStringBuf.append("|\n");
 		}
@@ -68,10 +81,18 @@ public class Grid
 		return gridStringBuf.toString();
 	}
 
-	/** Create a piece with his left up position. */
-	public void createPiece(Position leftUpPosition)
+	/**
+	 * Create a piece with its left up position and its size.
+	 * @param leftUpPosition
+	 * @param pieceId
+	 * @param width
+	 * @param height
+	 * @throws INCORRECT_ID
+	 */
+	public void createPiece(Position leftUpPosition, String pieceId, int width, int height) throws INCORRECT_ID
 	{		
-		Piece newCreatedPiece = new Piece();
+		// TODO : check if the new piece don't override an old one.
+		Piece newCreatedPiece = new Piece(width, height, pieceId);
 		
 		for(int lineIndex = 0; lineIndex < newCreatedPiece.getWidth(); lineIndex++)
 		{
