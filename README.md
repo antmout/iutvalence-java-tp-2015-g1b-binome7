@@ -3,9 +3,8 @@ Klotski
 
 ## Remarks
 
-- 04/10/2015:
-    - Work on your game!!! 
-    - Translate your "2" files…
+- 04/28/2015:
+    - Rename all your Exceptions… It's normal classes so use the normal naming convention for Java classes…
 
 ## Changelog
 
