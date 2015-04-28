@@ -45,26 +45,31 @@ public class Grid
 			createPiece(new Position(0, 2), "2", 1, 2);
 			createPiece(new Position(3, 2), "3", 1, 2);
 			createPiece(new Position(1, 2), "4", 2, 1);
-			createPiece(new Position(1, 3), "5",  1,  1);
-			createPiece(new Position(2, 3), "6",  1,  1);
-			createPiece(new Position(0, 4), "7",  1,  1);
-			createPiece(new Position(3, 4), "8",  1,  1);
-		} catch (IncorrectId e)
+			createPiece(new Position(1, 3), "5", 1, 1);
+			createPiece(new Position(2, 3), "6", 1, 1);
+			createPiece(new Position(0, 4), "7", 1, 1);
+			createPiece(new Position(3, 4), "8", 1, 1);
+		}
+		catch (IncorrectId e)
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (OverrideOldPiece e)
+		}
+		catch (OverrideOldPiece e)
 		{
 			e.printStackTrace();
-		} catch (InvalidPieceSize e)
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InvalidPiecePosition e)
+		}
+		catch (InvalidPieceSize e)
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (IdAlreadyUsed e)
+		}
+		catch (InvalidPiecePosition e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		catch (IdAlreadyUsed e)
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -116,7 +121,7 @@ public class Grid
 	 * @throws OverrideOldPiece
 	 * @throws InvalidPieceSize
 	 * @throws InvalidPiecePosition
-	 * @throws IdAlreadyUsed 
+	 * @throws IdAlreadyUsed
 	 */
 	public void createPiece(Position leftUpPosition, String pieceId, int width, int height) throws IncorrectId, OverrideOldPiece,
 			InvalidPieceSize, InvalidPiecePosition, IdAlreadyUsed
@@ -127,8 +132,8 @@ public class Grid
 		if (leftUpPosition.getX() < 0 || leftUpPosition.getY() < 0 || leftUpPosition.getX() + width > this.columnNumber
 				|| leftUpPosition.getY() + height > this.lineNumber)
 			throw new InvalidPiecePosition();
-		
-		if(alreadyExistingPieceId(pieceId))
+
+		if (alreadyExistingPieceId(pieceId))
 			throw new IdAlreadyUsed();
 
 		Piece newCreatedPiece = new Piece(width, height, pieceId);
@@ -144,19 +149,19 @@ public class Grid
 			}
 		}
 	}
-	
+
 	private boolean alreadyExistingPieceId(String id)
 	{
-		for(int lineIndex = 0; lineIndex < this.lineNumber; lineIndex++)
+		for (int lineIndex = 0; lineIndex < this.lineNumber; lineIndex++)
 		{
-			for(int columnIndex = 0; columnIndex < this.columnNumber; columnIndex++)
+			for (int columnIndex = 0; columnIndex < this.columnNumber; columnIndex++)
 			{
-				if(grid[columnIndex][lineIndex] != null)
-					if(grid[columnIndex][lineIndex].getId() == id)
+				if (grid[columnIndex][lineIndex] != null)
+					if (grid[columnIndex][lineIndex].getId() == id)
 						return true;
 			}
 		}
-		
+
 		return false;
 	}
 }

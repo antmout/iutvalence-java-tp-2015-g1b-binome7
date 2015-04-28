@@ -10,7 +10,7 @@ public class Main
 {
 	private Main()
 	{
-		//not called
+		// not called
 	}
 
 	/** Main method, start of the application. */

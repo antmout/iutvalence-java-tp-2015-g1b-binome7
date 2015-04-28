@@ -14,12 +14,13 @@ public class Piece
 	public final int width;
 	/** Height of the piece. */
 	public final int height;
-	
+
 	/** Unique Id of a piece. */
 	private final String id;
-	
+
 	/**
 	 * Create a piece with given width and height and id.
+	 * 
 	 * @param width
 	 * @param height
 	 * @param id
@@ -27,11 +28,11 @@ public class Piece
 	 */
 	public Piece(int width, int height, String id) throws IncorrectId
 	{
-		if(id.length() != Piece.ID_LENGHT)
+		if (id.length() != Piece.ID_LENGHT)
 		{
 			throw new IncorrectId();
 		}
-		
+
 		this.id = id;
 		this.width = width;
 		this.height = height;
