@@ -49,22 +49,22 @@ public class Grid
 			createPiece(new Position(2, 3), "6",  1,  1);
 			createPiece(new Position(0, 4), "7",  1,  1);
 			createPiece(new Position(3, 4), "8",  1,  1);
-		} catch (INCORRECT_ID e)
+		} catch (IncorrectId e)
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (OVERRIDE_OLD_PIECE e)
+		} catch (OverrideOldPiece e)
 		{
 			e.printStackTrace();
-		} catch (INVALID_PIECE_SIZE e)
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (INVALID_PIECE_POSITION e)
+		} catch (InvalidPieceSize e)
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (ID_ALREADY_USED e)
+		} catch (InvalidPiecePosition e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IdAlreadyUsed e)
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -112,24 +112,24 @@ public class Grid
 	 * @param pieceId
 	 * @param width
 	 * @param height
-	 * @throws INCORRECT_ID
-	 * @throws OVERRIDE_OLD_PIECE
-	 * @throws INVALID_PIECE_SIZE
-	 * @throws INVALID_PIECE_POSITION
-	 * @throws ID_ALREADY_USED 
+	 * @throws IncorrectId
+	 * @throws OverrideOldPiece
+	 * @throws InvalidPieceSize
+	 * @throws InvalidPiecePosition
+	 * @throws IdAlreadyUsed 
 	 */
-	public void createPiece(Position leftUpPosition, String pieceId, int width, int height) throws INCORRECT_ID, OVERRIDE_OLD_PIECE,
-			INVALID_PIECE_SIZE, INVALID_PIECE_POSITION, ID_ALREADY_USED
+	public void createPiece(Position leftUpPosition, String pieceId, int width, int height) throws IncorrectId, OverrideOldPiece,
+			InvalidPieceSize, InvalidPiecePosition, IdAlreadyUsed
 	{
 		if (width < 0 || height < 0 || width > this.columnNumber || height > this.lineNumber)
-			throw new INVALID_PIECE_SIZE();
+			throw new InvalidPieceSize();
 
 		if (leftUpPosition.getX() < 0 || leftUpPosition.getY() < 0 || leftUpPosition.getX() + width > this.columnNumber
 				|| leftUpPosition.getY() + height > this.lineNumber)
-			throw new INVALID_PIECE_POSITION();
+			throw new InvalidPiecePosition();
 		
 		if(alreadyExistingPieceId(pieceId))
-			throw new ID_ALREADY_USED();
+			throw new IdAlreadyUsed();
 
 		Piece newCreatedPiece = new Piece(width, height, pieceId);
 
@@ -138,7 +138,7 @@ public class Grid
 			for (int columnIndex = 0; columnIndex < newCreatedPiece.height; columnIndex++)
 			{
 				if (grid[leftUpPosition.getX() + lineIndex][leftUpPosition.getY() + columnIndex] != null)
-					throw new OVERRIDE_OLD_PIECE();
+					throw new OverrideOldPiece();
 
 				grid[leftUpPosition.getX() + lineIndex][leftUpPosition.getY() + columnIndex] = newCreatedPiece;
 			}
