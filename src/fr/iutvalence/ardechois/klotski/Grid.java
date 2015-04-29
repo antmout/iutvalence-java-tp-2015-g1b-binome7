@@ -45,34 +45,35 @@ public class Grid
 			createPiece(new Position(0, 2), "2", 1, 2);
 			createPiece(new Position(3, 2), "3", 1, 2);
 			createPiece(new Position(1, 2), "4", 2, 1);
-			createPiece(new Position(1, 3), "5", 1, 1);
+			createPiece(new Position(1, 4), "5", 1, 1);
 			createPiece(new Position(2, 3), "6", 1, 1);
 			createPiece(new Position(0, 4), "7", 1, 1);
 			createPiece(new Position(3, 4), "8", 1, 1);
 		}
 		catch (IncorrectId e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.exit(1);
 		}
 		catch (OverrideOldPiece e)
 		{
 			e.printStackTrace();
+			System.exit(1);
 		}
 		catch (InvalidPieceSize e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.exit(1);
 		}
 		catch (InvalidPiecePosition e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.exit(1);
 		}
 		catch (IdAlreadyUsed e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.exit(1);
 		}
 
 	}
@@ -133,7 +134,7 @@ public class Grid
 				|| leftUpPosition.getY() + height > this.lineNumber)
 			throw new InvalidPiecePosition();
 
-		if (alreadyExistingPieceId(pieceId))
+		if (isPieceIdSet(pieceId))
 			throw new IdAlreadyUsed();
 
 		Piece newCreatedPiece = new Piece(width, height, pieceId);
@@ -150,7 +151,13 @@ public class Grid
 		}
 	}
 
-	private boolean alreadyExistingPieceId(String id)
+	/**
+	 * Return true if the piece id is used.
+	 * 
+	 * @param id
+	 * @return exists
+	 */
+	private boolean isPieceIdSet(String id)
 	{
 		for (int lineIndex = 0; lineIndex < this.lineNumber; lineIndex++)
 		{
@@ -163,5 +170,119 @@ public class Grid
 		}
 
 		return false;
+	}
+
+	/**
+	 * Move the piece in the given direction.
+	 * 
+	 * @param pieceId
+	 * @param direction
+	 * @throws IncorrectDirection
+	 * @throws IncorrectId
+	 * @throws ImpossibleMovement
+	 */
+	public void movePiece(String pieceId, Direction direction) throws IncorrectDirection, IncorrectId, ImpossibleMovement
+	{
+		Piece pieceToMove = getPiece(pieceId);
+		Position piecePosition = getPieceLeftUpPosition(pieceId);
+
+		switch (direction)
+		{
+			case UP :
+			{
+				if (piecePosition.getY() == 0)
+				{
+					throw new ImpossibleMovement();
+				}
+				
+				for(int columnIndex = piecePosition.getX(); columnIndex < piecePosition.getX() + pieceToMove.width; columnIndex++)
+				{
+					if(this.grid[columnIndex][piecePosition.getY()-1] != null)
+					{
+						throw new ImpossibleMovement();
+					}
+				}
+				
+				for(int columnIndex = piecePosition.getX(); columnIndex < piecePosition.getX() + pieceToMove.width; columnIndex++)
+				{
+					this.grid[columnIndex][piecePosition.getY()-1] = pieceToMove;
+					this.grid[columnIndex][piecePosition.getY()+pieceToMove.height-1] = null;
+				}
+				break;
+			}
+
+			case DOWN :
+			{
+				if (piecePosition.getY() + pieceToMove.height == this.lineNumber)
+				{
+					throw new ImpossibleMovement();
+				}
+				break;
+			}
+
+			case RIGHT :
+			{
+				if (piecePosition.getX() + pieceToMove.width == this.columnNumber)
+				{
+					throw new ImpossibleMovement();
+				}
+				break;
+			}
+
+			case LEFT :
+			{
+				if (piecePosition.getX() == 0)
+				{
+					throw new ImpossibleMovement();
+				}
+				break;
+			}
+
+			default :
+				throw new IncorrectDirection();
+		}
+	}
+	/**
+	 * Get the piece with the given Id.
+	 * 
+	 * @param pieceId
+	 * @return piece
+	 * @throws IncorrectId
+	 */
+	private Piece getPiece(String pieceId) throws IncorrectId
+	{
+		for (int lineIndex = 0; lineIndex < this.lineNumber; lineIndex++)
+		{
+			for (int columnIndex = 0; columnIndex < this.columnNumber; columnIndex++)
+			{
+				if (grid[columnIndex][lineIndex] != null)
+					if (grid[columnIndex][lineIndex].getId() == pieceId)
+						return grid[columnIndex][lineIndex];
+			}
+		}
+
+		throw new IncorrectId();
+	}
+
+	/**
+	 * Get the piece left up position with a given Id.
+	 * 
+	 * @param pieceId
+	 * @return position
+	 * @throws IncorrectId
+	 */
+	private Position getPieceLeftUpPosition(String pieceId) throws IncorrectId
+	{
+		for (int lineIndex = 0; lineIndex < this.lineNumber; lineIndex++)
+		{
+			for (int columnIndex = 0; columnIndex < this.columnNumber; columnIndex++)
+			{
+				if (grid[columnIndex][lineIndex] != null)
+					if (grid[columnIndex][lineIndex].getId() == pieceId)
+						return new Position(columnIndex, lineIndex);
+			}
+		}
+
+		throw new IncorrectId();
 	}
 }
