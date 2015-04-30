@@ -194,19 +194,19 @@ public class Grid
 				{
 					throw new ImpossibleMovement();
 				}
-				
-				for(int columnIndex = piecePosition.getX(); columnIndex < piecePosition.getX() + pieceToMove.width; columnIndex++)
+
+				for (int columnIndex = piecePosition.getX(); columnIndex < piecePosition.getX() + pieceToMove.width; columnIndex++)
 				{
-					if(this.grid[columnIndex][piecePosition.getY()-1] != null)
+					if (this.grid[columnIndex][piecePosition.getY() - 1] != null)
 					{
 						throw new ImpossibleMovement();
 					}
 				}
-				
-				for(int columnIndex = piecePosition.getX(); columnIndex < piecePosition.getX() + pieceToMove.width; columnIndex++)
+
+				for (int columnIndex = piecePosition.getX(); columnIndex < piecePosition.getX() + pieceToMove.width; columnIndex++)
 				{
-					this.grid[columnIndex][piecePosition.getY()-1] = pieceToMove;
-					this.grid[columnIndex][piecePosition.getY()+pieceToMove.height-1] = null;
+					this.grid[columnIndex][piecePosition.getY() - 1] = pieceToMove;
+					this.grid[columnIndex][piecePosition.getY() + pieceToMove.height - 1] = null;
 				}
 				break;
 			}
@@ -216,6 +216,19 @@ public class Grid
 				if (piecePosition.getY() + pieceToMove.height == this.lineNumber)
 				{
 					throw new ImpossibleMovement();
+				}
+
+				for (int columnIndex = piecePosition.getX(); columnIndex < piecePosition.getX() + pieceToMove.width; columnIndex++)
+				{
+					if (this.grid[columnIndex][piecePosition.getY() + 1] != null)
+					{
+						throw new ImpossibleMovement();
+					}
+				}
+				for (int columnIndex = piecePosition.getX(); columnIndex < piecePosition.getX() + pieceToMove.width; columnIndex++)
+				{
+					this.grid[columnIndex][piecePosition.getY() + 1] = pieceToMove;
+					this.grid[columnIndex][piecePosition.getY() - pieceToMove.height + 1] = null;
 				}
 				break;
 			}
