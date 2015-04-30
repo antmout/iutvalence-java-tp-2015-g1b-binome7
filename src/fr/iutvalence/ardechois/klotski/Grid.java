@@ -231,6 +231,7 @@ public class Grid
 					this.grid[columnIndex][piecePosition.getY() - pieceToMove.height + 1] = null;
 				}
 				break;
+				
 			}
 
 			case RIGHT :

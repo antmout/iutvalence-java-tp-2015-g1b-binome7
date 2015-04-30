@@ -62,7 +62,7 @@ public class Klotski
 	private void executeCommand(String command)
 	{
 		// TODO : treat the command.
-		
+		/*
 		try
 		{
 			this.grid.movePiece("6", Direction.DOWN);
@@ -79,6 +79,6 @@ public class Klotski
 		{
 			System.out.println("Impossible movement");
 		}
-		
+		*/
 	}
 }
