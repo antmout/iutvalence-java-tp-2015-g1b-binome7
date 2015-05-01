@@ -70,15 +70,15 @@ public class Klotski
 			// this.grid.movePiece("7", Direction.RIGHT);
 			this.grid.movePiece("8", Direction.LEFT);
 		}
-		catch (IncorrectDirection e)
+		catch (IncorrectDirectionException e)
 		{
 			System.out.println("Incorrect Direction");
 		}
-		catch (IncorrectId e)
+		catch (IncorrectIdException e)
 		{
 			System.out.println("Incorrect Id");
 		}
-		catch (ImpossibleMovement e)
+		catch (ImpossibleMovementException e)
 		{
 			System.out.println("Impossible movement");
 		}

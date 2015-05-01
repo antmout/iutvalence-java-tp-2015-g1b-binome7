@@ -31,10 +31,10 @@ public class Player
 	}
 
 	/** Set the player best score. */
-	public void setBestScore(int bestScore) throws NegativeScore
+	public void setBestScore(int bestScore) throws NegativeScoreException
 	{
 		if (bestScore < 0)
-			throw new NegativeScore();
+			throw new NegativeScoreException();
 
 		if (bestScore < this.bestScore)
 		{

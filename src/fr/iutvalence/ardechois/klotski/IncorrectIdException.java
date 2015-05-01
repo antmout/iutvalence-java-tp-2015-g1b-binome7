@@ -7,7 +7,7 @@ package fr.iutvalence.ardechois.klotski;
  * @version 0.04
  */
 
-public class IncorrectId extends Exception
+public class IncorrectIdException extends Exception
 {
 
 }

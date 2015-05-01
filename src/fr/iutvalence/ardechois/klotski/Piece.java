@@ -24,13 +24,13 @@ public class Piece
 	 * @param width
 	 * @param height
 	 * @param id
-	 * @throws IncorrectId
+	 * @throws IncorrectIdException
 	 */
-	public Piece(int width, int height, String id) throws IncorrectId
+	public Piece(int width, int height, String id) throws IncorrectIdException
 	{
 		if (id.length() != Piece.ID_LENGHT)
 		{
-			throw new IncorrectId();
+			throw new IncorrectIdException();
 		}
 
 		this.id = id;

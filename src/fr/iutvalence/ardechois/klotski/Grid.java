@@ -50,27 +50,27 @@ public class Grid
 			createPiece(new Position(0, 4), "7", 1, 1);
 			createPiece(new Position(3, 4), "8", 1, 1);
 		}
-		catch (IncorrectId e)
+		catch (IncorrectIdException e)
 		{
 			e.printStackTrace();
 			System.exit(1);
 		}
-		catch (OverrideOldPiece e)
+		catch (OverrideOldPieceException e)
 		{
 			e.printStackTrace();
 			System.exit(1);
 		}
-		catch (InvalidPieceSize e)
+		catch (InvalidPieceSizeException e)
 		{
 			e.printStackTrace();
 			System.exit(1);
 		}
-		catch (InvalidPiecePosition e)
+		catch (InvalidPiecePositionException e)
 		{
 			e.printStackTrace();
 			System.exit(1);
 		}
-		catch (IdAlreadyUsed e)
+		catch (IdAlreadyUsedException e)
 		{
 			e.printStackTrace();
 			System.exit(1);
@@ -118,24 +118,24 @@ public class Grid
 	 * @param pieceId
 	 * @param width
 	 * @param height
-	 * @throws IncorrectId
-	 * @throws OverrideOldPiece
-	 * @throws InvalidPieceSize
-	 * @throws InvalidPiecePosition
-	 * @throws IdAlreadyUsed
+	 * @throws IncorrectIdException
+	 * @throws OverrideOldPieceException
+	 * @throws InvalidPieceSizeException
+	 * @throws InvalidPiecePositionException
+	 * @throws IdAlreadyUsedException
 	 */
-	public void createPiece(Position leftUpPosition, String pieceId, int width, int height) throws IncorrectId, OverrideOldPiece,
-			InvalidPieceSize, InvalidPiecePosition, IdAlreadyUsed
+	public void createPiece(Position leftUpPosition, String pieceId, int width, int height) throws IncorrectIdException, OverrideOldPieceException,
+			InvalidPieceSizeException, InvalidPiecePositionException, IdAlreadyUsedException
 	{
 		if (width < 0 || height < 0 || width > this.columnNumber || height > this.lineNumber)
-			throw new InvalidPieceSize();
+			throw new InvalidPieceSizeException();
 
 		if (leftUpPosition.getX() < 0 || leftUpPosition.getY() < 0 || leftUpPosition.getX() + width > this.columnNumber
 				|| leftUpPosition.getY() + height > this.lineNumber)
-			throw new InvalidPiecePosition();
+			throw new InvalidPiecePositionException();
 
 		if (isPieceIdSet(pieceId))
-			throw new IdAlreadyUsed();
+			throw new IdAlreadyUsedException();
 
 		Piece newCreatedPiece = new Piece(width, height, pieceId);
 
@@ -144,7 +144,7 @@ public class Grid
 			for (int columnIndex = 0; columnIndex < newCreatedPiece.height; columnIndex++)
 			{
 				if (grid[leftUpPosition.getX() + lineIndex][leftUpPosition.getY() + columnIndex] != null)
-					throw new OverrideOldPiece();
+					throw new OverrideOldPieceException();
 
 				grid[leftUpPosition.getX() + lineIndex][leftUpPosition.getY() + columnIndex] = newCreatedPiece;
 			}
@@ -177,11 +177,11 @@ public class Grid
 	 * 
 	 * @param pieceId
 	 * @param direction
-	 * @throws IncorrectDirection
-	 * @throws IncorrectId
-	 * @throws ImpossibleMovement
+	 * @throws IncorrectDirectionException
+	 * @throws IncorrectIdException
+	 * @throws ImpossibleMovementException
 	 */
-	public void movePiece(String pieceId, Direction direction) throws IncorrectDirection, IncorrectId, ImpossibleMovement
+	public void movePiece(String pieceId, Direction direction) throws IncorrectDirectionException, IncorrectIdException, ImpossibleMovementException
 	{
 		Piece pieceToMove = getPiece(pieceId);
 		Position piecePosition = getPieceLeftUpPosition(pieceId);
@@ -192,14 +192,14 @@ public class Grid
 			{
 				if (piecePosition.getY() == 0)
 				{
-					throw new ImpossibleMovement();
+					throw new ImpossibleMovementException();
 				}
 
 				for (int columnIndex = piecePosition.getX(); columnIndex < piecePosition.getX() + pieceToMove.width; columnIndex++)
 				{
 					if (this.grid[columnIndex][piecePosition.getY() - 1] != null)
 					{
-						throw new ImpossibleMovement();
+						throw new ImpossibleMovementException();
 					}
 				}
 
@@ -215,14 +215,14 @@ public class Grid
 			{
 				if (piecePosition.getY() + pieceToMove.height == this.lineNumber)
 				{
-					throw new ImpossibleMovement();
+					throw new ImpossibleMovementException();
 				}
 
 				for (int columnIndex = piecePosition.getX(); columnIndex < piecePosition.getX() + pieceToMove.width; columnIndex++)
 				{
 					if (this.grid[columnIndex][piecePosition.getY() + 1] != null)
 					{
-						throw new ImpossibleMovement();
+						throw new ImpossibleMovementException();
 					}
 				}
 				for (int columnIndex = piecePosition.getX(); columnIndex < piecePosition.getX() + pieceToMove.width; columnIndex++)
@@ -238,14 +238,14 @@ public class Grid
 			{
 				if (piecePosition.getX() + pieceToMove.width == this.columnNumber)
 				{
-					throw new ImpossibleMovement();
+					throw new ImpossibleMovementException();
 				}
 
 				for (int lineIndex = piecePosition.getY(); lineIndex < piecePosition.getY() + pieceToMove.height; lineIndex++)
 				{
 					if (this.grid[piecePosition.getX() + 1][lineIndex] != null)
 					{
-						throw new ImpossibleMovement();
+						throw new ImpossibleMovementException();
 					}
 				}
 
@@ -262,14 +262,14 @@ public class Grid
 			{
 				if (piecePosition.getX() == 0)
 				{
-					throw new ImpossibleMovement();
+					throw new ImpossibleMovementException();
 				}
 
 				for (int lineIndex = piecePosition.getY(); lineIndex < piecePosition.getY() + pieceToMove.height; lineIndex++)
 				{
 					if (this.grid[piecePosition.getX() - 1][lineIndex] != null)
 					{
-						throw new ImpossibleMovement();
+						throw new ImpossibleMovementException();
 					}
 				}
 
@@ -283,7 +283,7 @@ public class Grid
 			}
 
 			default :
-				throw new IncorrectDirection();
+				throw new IncorrectDirectionException();
 		}
 	}
 	/**
@@ -291,9 +291,9 @@ public class Grid
 	 * 
 	 * @param pieceId
 	 * @return piece
-	 * @throws IncorrectId
+	 * @throws IncorrectIdException
 	 */
-	private Piece getPiece(String pieceId) throws IncorrectId
+	private Piece getPiece(String pieceId) throws IncorrectIdException
 	{
 		for (int lineIndex = 0; lineIndex < this.lineNumber; lineIndex++)
 		{
@@ -305,7 +305,7 @@ public class Grid
 			}
 		}
 
-		throw new IncorrectId();
+		throw new IncorrectIdException();
 	}
 
 	/**
@@ -313,9 +313,9 @@ public class Grid
 	 * 
 	 * @param pieceId
 	 * @return position
-	 * @throws IncorrectId
+	 * @throws IncorrectIdException
 	 */
-	private Position getPieceLeftUpPosition(String pieceId) throws IncorrectId
+	private Position getPieceLeftUpPosition(String pieceId) throws IncorrectIdException
 	{
 		for (int lineIndex = 0; lineIndex < this.lineNumber; lineIndex++)
 		{
@@ -327,6 +327,6 @@ public class Grid
 			}
 		}
 
-		throw new IncorrectId();
+		throw new IncorrectIdException();
 	}
 }
