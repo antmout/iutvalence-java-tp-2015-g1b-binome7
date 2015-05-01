@@ -67,7 +67,8 @@ public class Klotski
 
 		try
 		{
-			this.grid.movePiece("7", Direction.RIGHT);
+			// this.grid.movePiece("7", Direction.RIGHT);
+			this.grid.movePiece("8", Direction.LEFT);
 		}
 		catch (IncorrectDirection e)
 		{

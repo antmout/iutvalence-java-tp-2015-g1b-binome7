@@ -264,6 +264,21 @@ public class Grid
 				{
 					throw new ImpossibleMovement();
 				}
+
+				for (int lineIndex = piecePosition.getY(); lineIndex < piecePosition.getY() + pieceToMove.height; lineIndex++)
+				{
+					if (this.grid[piecePosition.getX() - 1][lineIndex] != null)
+					{
+						throw new ImpossibleMovement();
+					}
+				}
+
+				for (int lineIndex = piecePosition.getY(); lineIndex < piecePosition.getY() + pieceToMove.height; lineIndex++)
+				{
+					this.grid[piecePosition.getX() - 1][lineIndex] = pieceToMove;
+					this.grid[piecePosition.getX() - pieceToMove.width + 1][lineIndex] = null;
+				}
+
 				break;
 			}
 
