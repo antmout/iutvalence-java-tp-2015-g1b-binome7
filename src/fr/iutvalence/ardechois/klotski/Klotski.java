@@ -1,6 +1,5 @@
 package fr.iutvalence.ardechois.klotski;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -27,8 +26,13 @@ public class Klotski
 
 	/**
 	 * Launch the game.
+	 * 
+	 * @throws IncorrectDirectionException
+	 * @throws ImpossibleMovementException 
+	 * @throws IncorrectIdException 
 	 */
-	public void start()
+
+	public void start() throws IncorrectDirectionException, IncorrectIdException, ImpossibleMovementException
 	{
 		Scanner commandScanner = new Scanner(System.in);
 		Command currentCommand = new Command("8", "LEFT");
@@ -41,11 +45,9 @@ public class Klotski
 
 			System.out.print("Which piece to move: ");
 			currentCommand.idPiece = commandScanner.nextLine();
-			System.out.println(currentCommand.getIdPieceCommand());
 
-			System.out.print("Which direction to move: ");
+			System.out.print("Which direction to choose: ");
 			currentCommand.direction = commandScanner.nextLine();
-			System.out.println(currentCommand.getDirectionCommand());
 
 			executeCommand(currentCommand);
 		}
@@ -65,14 +67,20 @@ public class Klotski
 	 * Execute the given command.
 	 * 
 	 * @param command
+	 * @throws IncorrectDirectionException 
 	 */
-	private void executeCommand(Command command)
+	private void executeCommand(Command command) throws IncorrectDirectionException, IncorrectIdException, ImpossibleMovementException
 	{
-		// TODO : treat the command.
-
+		// TODO : Treat the command.
+		// Problem with exceptions.
+		
 		try
-		{
-			this.grid.movePiece(command.getIdPieceCommand(), command.getDirectionCommand());
+		{	
+			String directionPieceToMove = command.getIdPieceCommand();
+			Direction idPieceToMove = command.getDirectionCommand();
+			
+			this.grid.movePiece(directionPieceToMove, idPieceToMove);
+			System.out.println();
 		}
 		catch (IncorrectDirectionException e)
 		{

@@ -295,19 +295,18 @@ public class Grid
 	 * @throws IncorrectIdException
 	 */
 	private Piece getPiece(String pieceId) throws IncorrectIdException
-	{
+	{	
 		for (int lineIndex = 0; lineIndex < this.lineNumber; lineIndex++)
 		{
 			for (int columnIndex = 0; columnIndex < this.columnNumber; columnIndex++)
 			{
 				if (grid[columnIndex][lineIndex] != null)
+
 					if (grid[columnIndex][lineIndex].getId() == pieceId)
+
 						return grid[columnIndex][lineIndex];
 			}
 		}
-		// begin debug
-		System.out.println("thrown exception");
-		// end debug
 		throw new IncorrectIdException();
 	}
 	/**

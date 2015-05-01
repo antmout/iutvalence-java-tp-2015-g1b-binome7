@@ -13,10 +13,14 @@ public class Main
 		// not called
 	}
 
-	/** Main method, start of the application. */
-	public static void main(String[] args)
+	/** Main method, start of the application. 
+	 * @throws IncorrectDirectionException 
+	 * @throws ImpossibleMovementException 
+	 * @throws IncorrectIdException */
+	public static void main(String[] args) throws IncorrectDirectionException, IncorrectIdException, ImpossibleMovementException
 	{
 		Klotski game = new Klotski("Player");
 		game.start();
 	}
 }
+

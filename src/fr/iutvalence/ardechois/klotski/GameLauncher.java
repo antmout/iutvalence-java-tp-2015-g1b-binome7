@@ -15,8 +15,14 @@ public class GameLauncher
 	{ /* CAN'T HAPPEN */
 	}
 
-	/** Main method, start of the application. */
-	public static void main(String[] args)
+	/**
+	 * Main method, start of the application.
+	 * 
+	 * @throws IncorrectDirectionException
+	 * @throws ImpossibleMovementException 
+	 * @throws IncorrectIdException 
+	 */
+	public static void main(String[] args) throws IncorrectDirectionException, IncorrectIdException, ImpossibleMovementException
 	{
 		try (Scanner playerScanner = new Scanner(System.in))
 		{

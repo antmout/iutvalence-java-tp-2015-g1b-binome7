@@ -2,6 +2,7 @@ package fr.iutvalence.ardechois.klotski;
 
 /**
  * Command given by the player in the Application.
+ * 
  * @author antoine
  *
  */
@@ -11,12 +12,18 @@ public class Command
 	 * Id of the piece in the given command.
 	 */
 	public String idPiece;
-	
+
 	/**
 	 * Direction of the piece in the given command.
 	 */
 	public String direction;
 
+	/**
+	 * Create a new command.
+	 * 
+	 * @param idPiece
+	 * @param string
+	 */
 	public Command(String idPiece, String string)
 	{
 		this.idPiece = idPiece;
@@ -37,10 +44,26 @@ public class Command
 	 * Get <b>direction</b> to be applied to the selected Piece.
 	 * 
 	 * @return direction
+	 * @throws IncorrectDirectionException
 	 */
-	public Direction getDirectionCommand()
+	public Direction getDirectionCommand() throws IncorrectDirectionException
 	{
-		// Implement this getter !
-		return Direction.DOWN;
+		switch (this.direction)
+		{
+			case "UP" :
+				return Direction.UP;
+
+			case "DOWN" :
+				return Direction.DOWN;
+
+			case "RIGHT" :
+				return Direction.RIGHT;
+
+			case "LEFT" :
+				return Direction.LEFT;
+
+			default :
+				throw new IncorrectDirectionException();
+		}
 	}
 }
