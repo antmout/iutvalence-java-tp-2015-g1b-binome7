@@ -44,6 +44,7 @@ public class Klotski
 
 			executeCommand(currentCommand);
 		}
+
 	}
 
 	/**
@@ -52,6 +53,7 @@ public class Klotski
 	private void clearConsole()
 	{
 		// TODO : clear the console.
+
 	}
 
 	/**
@@ -62,10 +64,10 @@ public class Klotski
 	private void executeCommand(String command)
 	{
 		// TODO : treat the command.
-		/*
+
 		try
 		{
-			this.grid.movePiece("6", Direction.DOWN);
+			this.grid.movePiece("7", Direction.RIGHT);
 		}
 		catch (IncorrectDirection e)
 		{
@@ -79,6 +81,6 @@ public class Klotski
 		{
 			System.out.println("Impossible movement");
 		}
-		*/
+
 	}
 }

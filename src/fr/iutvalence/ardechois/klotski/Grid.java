@@ -45,7 +45,7 @@ public class Grid
 			createPiece(new Position(0, 2), "2", 1, 2);
 			createPiece(new Position(3, 2), "3", 1, 2);
 			createPiece(new Position(1, 2), "4", 2, 1);
-			createPiece(new Position(1, 4), "5", 1, 1);
+			createPiece(new Position(1, 3), "5", 1, 1);
 			createPiece(new Position(2, 3), "6", 1, 1);
 			createPiece(new Position(0, 4), "7", 1, 1);
 			createPiece(new Position(3, 4), "8", 1, 1);
@@ -231,7 +231,7 @@ public class Grid
 					this.grid[columnIndex][piecePosition.getY() - pieceToMove.height + 1] = null;
 				}
 				break;
-				
+
 			}
 
 			case RIGHT :
@@ -240,6 +240,21 @@ public class Grid
 				{
 					throw new ImpossibleMovement();
 				}
+
+				for (int lineIndex = piecePosition.getY(); lineIndex < piecePosition.getY() + pieceToMove.height; lineIndex++)
+				{
+					if (this.grid[piecePosition.getX() + 1][lineIndex] != null)
+					{
+						throw new ImpossibleMovement();
+					}
+				}
+
+				for (int lineIndex = piecePosition.getY(); lineIndex < piecePosition.getY() + pieceToMove.height; lineIndex++)
+				{
+					this.grid[piecePosition.getX() + 1][lineIndex] = pieceToMove;
+					this.grid[piecePosition.getX() + pieceToMove.width - 1][lineIndex] = null;
+				}
+
 				break;
 			}
 
