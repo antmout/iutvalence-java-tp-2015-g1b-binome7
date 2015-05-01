@@ -71,15 +71,9 @@ public class Klotski
 	 */
 	private void executeCommand(Command command) throws IncorrectDirectionException, IncorrectIdException, ImpossibleMovementException
 	{
-		// TODO : Treat the command.
-		// Problem with exceptions.
-		
 		try
-		{	
-			String directionPieceToMove = command.getIdPieceCommand();
-			Direction idPieceToMove = command.getDirectionCommand();
-			
-			this.grid.movePiece(directionPieceToMove, idPieceToMove);
+		{
+			this.grid.movePiece(command.getIdPieceCommand(), command.getDirectionCommand());
 			System.out.println();
 		}
 		catch (IncorrectDirectionException e)

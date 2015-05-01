@@ -221,15 +221,15 @@ public class Grid
 
 				for (int columnIndex = piecePosition.getX(); columnIndex < piecePosition.getX() + pieceToMove.width; columnIndex++)
 				{
-					if (this.grid[columnIndex][piecePosition.getY() + 1] != null)
+					if (this.grid[columnIndex][piecePosition.getY() + pieceToMove.height] != null)
 					{
 						throw new ImpossibleMovementException();
 					}
 				}
 				for (int columnIndex = piecePosition.getX(); columnIndex < piecePosition.getX() + pieceToMove.width; columnIndex++)
 				{
-					this.grid[columnIndex][piecePosition.getY() + 1] = pieceToMove;
-					this.grid[columnIndex][piecePosition.getY() - pieceToMove.height + 1] = null;
+					this.grid[columnIndex][piecePosition.getY() + pieceToMove.height] = pieceToMove;
+					this.grid[columnIndex][piecePosition.getY()] = null;
 				}
 				break;
 
@@ -244,7 +244,7 @@ public class Grid
 
 				for (int lineIndex = piecePosition.getY(); lineIndex < piecePosition.getY() + pieceToMove.height; lineIndex++)
 				{
-					if (this.grid[piecePosition.getX() + 1][lineIndex] != null)
+					if (this.grid[piecePosition.getX() + pieceToMove.width][lineIndex] != null)
 					{
 						throw new ImpossibleMovementException();
 					}
@@ -252,8 +252,8 @@ public class Grid
 
 				for (int lineIndex = piecePosition.getY(); lineIndex < piecePosition.getY() + pieceToMove.height; lineIndex++)
 				{
-					this.grid[piecePosition.getX() + 1][lineIndex] = pieceToMove;
-					this.grid[piecePosition.getX() + pieceToMove.width - 1][lineIndex] = null;
+					this.grid[piecePosition.getX() + pieceToMove.width][lineIndex] = pieceToMove;
+					this.grid[piecePosition.getX()][lineIndex] = null;
 				}
 
 				break;
@@ -277,7 +277,7 @@ public class Grid
 				for (int lineIndex = piecePosition.getY(); lineIndex < piecePosition.getY() + pieceToMove.height; lineIndex++)
 				{
 					this.grid[piecePosition.getX() - 1][lineIndex] = pieceToMove;
-					this.grid[piecePosition.getX() - pieceToMove.width + 1][lineIndex] = null;
+					this.grid[piecePosition.getX() + pieceToMove.width - 1][lineIndex] = null;
 				}
 
 				break;
@@ -295,16 +295,18 @@ public class Grid
 	 * @throws IncorrectIdException
 	 */
 	private Piece getPiece(String pieceId) throws IncorrectIdException
-	{	
+	{
 		for (int lineIndex = 0; lineIndex < this.lineNumber; lineIndex++)
 		{
 			for (int columnIndex = 0; columnIndex < this.columnNumber; columnIndex++)
 			{
 				if (grid[columnIndex][lineIndex] != null)
-
-					if (grid[columnIndex][lineIndex].getId() == pieceId)
-
+				{
+					if (grid[columnIndex][lineIndex].getId().equals(pieceId))
+					{
 						return grid[columnIndex][lineIndex];
+					}
+				}
 			}
 		}
 		throw new IncorrectIdException();
@@ -323,7 +325,7 @@ public class Grid
 			for (int columnIndex = 0; columnIndex < this.columnNumber; columnIndex++)
 			{
 				if (grid[columnIndex][lineIndex] != null)
-					if (grid[columnIndex][lineIndex].getId() == pieceId)
+					if (grid[columnIndex][lineIndex].getId().equals(pieceId))
 						return new Position(columnIndex, lineIndex);
 			}
 		}
