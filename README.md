@@ -15,3 +15,6 @@ Klotski
 
 - Version 0.04 (21/04/2015):
 	- Correction of all TODO.
+
+- Version 0.05 (1/05/2015):
+	- Movement implementation for all directions, with collisions detection.
