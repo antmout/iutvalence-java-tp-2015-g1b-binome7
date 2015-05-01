@@ -124,8 +124,8 @@ public class Grid
 	 * @throws InvalidPiecePositionException
 	 * @throws IdAlreadyUsedException
 	 */
-	public void createPiece(Position leftUpPosition, String pieceId, int width, int height) throws IncorrectIdException, OverrideOldPieceException,
-			InvalidPieceSizeException, InvalidPiecePositionException, IdAlreadyUsedException
+	public void createPiece(Position leftUpPosition, String pieceId, int width, int height) throws IncorrectIdException,
+			OverrideOldPieceException, InvalidPieceSizeException, InvalidPiecePositionException, IdAlreadyUsedException
 	{
 		if (width < 0 || height < 0 || width > this.columnNumber || height > this.lineNumber)
 			throw new InvalidPieceSizeException();
@@ -181,7 +181,8 @@ public class Grid
 	 * @throws IncorrectIdException
 	 * @throws ImpossibleMovementException
 	 */
-	public void movePiece(String pieceId, Direction direction) throws IncorrectDirectionException, IncorrectIdException, ImpossibleMovementException
+	public void movePiece(String pieceId, Direction direction) throws IncorrectDirectionException, IncorrectIdException,
+			ImpossibleMovementException
 	{
 		Piece pieceToMove = getPiece(pieceId);
 		Position piecePosition = getPieceLeftUpPosition(pieceId);
@@ -304,10 +305,11 @@ public class Grid
 						return grid[columnIndex][lineIndex];
 			}
 		}
-
+		// begin debug
+		System.out.println("thrown exception");
+		// end debug
 		throw new IncorrectIdException();
 	}
-
 	/**
 	 * Get the piece left up position with a given Id.
 	 * 

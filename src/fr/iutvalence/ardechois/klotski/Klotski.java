@@ -31,7 +31,7 @@ public class Klotski
 	public void start()
 	{
 		Scanner commandScanner = new Scanner(System.in);
-		String currentCommand;
+		Command currentCommand = new Command("8", "LEFT");
 		while (true)
 		{
 			clearConsole();
@@ -39,8 +39,13 @@ public class Klotski
 			System.out.println(player);
 			System.out.println(grid);
 
-			System.out.print("Which command to execute: ");
-			currentCommand = commandScanner.nextLine();
+			System.out.print("Which piece to move: ");
+			currentCommand.idPiece = commandScanner.nextLine();
+			System.out.println(currentCommand.getIdPieceCommand());
+
+			System.out.print("Which direction to move: ");
+			currentCommand.direction = commandScanner.nextLine();
+			System.out.println(currentCommand.getDirectionCommand());
 
 			executeCommand(currentCommand);
 		}
@@ -61,14 +66,13 @@ public class Klotski
 	 * 
 	 * @param command
 	 */
-	private void executeCommand(String command)
+	private void executeCommand(Command command)
 	{
 		// TODO : treat the command.
 
 		try
 		{
-			// this.grid.movePiece("7", Direction.RIGHT);
-			this.grid.movePiece("8", Direction.LEFT);
+			this.grid.movePiece(command.getIdPieceCommand(), command.getDirectionCommand());
 		}
 		catch (IncorrectDirectionException e)
 		{
