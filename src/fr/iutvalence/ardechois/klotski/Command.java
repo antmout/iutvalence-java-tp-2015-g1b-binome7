@@ -1,5 +1,7 @@
 package fr.iutvalence.ardechois.klotski;
 
+import java.util.HashMap;
+
 /**
  * Command given by the player in the Application.
  * 
@@ -8,20 +10,21 @@ package fr.iutvalence.ardechois.klotski;
  */
 public class Command
 {
+	public final HashMap<String, Direction> directionHashMap;
+	
 	/**
 	 * Id of the piece in the given command.
 	 */
 	public String idPiece;
 
 	/**
-	 * Direction of the piece in the given command.
+	 * Direction of the piece in the given command. Always in capital letters.
 	 */
 	public String direction;
 
 	public Command()
 	{
-		this.idPiece = null;
-		this.direction = null;
+		this(null, null);
 	}
 	
 	/**
@@ -34,6 +37,12 @@ public class Command
 	{
 		this.idPiece = idPiece;
 		this.direction = string;
+		
+		this.directionHashMap = new HashMap<String, Direction>();
+		this.directionHashMap.put("UP", Direction.UP);
+		this.directionHashMap.put("DOWN", Direction.DOWN);
+		this.directionHashMap.put("LEFT", Direction.LEFT);
+		this.directionHashMap.put("RIGHT", Direction.RIGHT);
 	}
 
 	/**
@@ -54,23 +63,11 @@ public class Command
 	 */
 	public Direction getDirectionCommand() throws IncorrectDirectionException
 	{
-		// TODO : collection: map
-		switch (this.direction)
+		if(this.directionHashMap.get(this.direction) == null)
 		{
-			case "UP":
-				return Direction.UP;
-
-			case "DOWN" :
-				return Direction.DOWN;
-
-			case "RIGHT" :
-				return Direction.RIGHT;
-
-			case "LEFT" :
-				return Direction.LEFT;
-
-			default :
-				throw new IncorrectDirectionException();
+			throw new IncorrectDirectionException();
 		}
+		
+		return this.directionHashMap.get(this.direction);
 	}
 }

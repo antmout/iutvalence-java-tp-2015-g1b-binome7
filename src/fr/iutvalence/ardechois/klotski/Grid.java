@@ -20,6 +20,8 @@ public class Grid
 	private final int lineNumber;
 	/** Number of the grid columns. */
 	private final int columnNumber;
+	
+	private final Objective objective;
 
 	/** Set the grid with default values. */
 	public Grid()
@@ -57,7 +59,8 @@ public class Grid
 			System.err.println("Problem with piece creation.");
 			System.exit(1);
 		}
-
+		
+		objective = new Objective(new Position(1, 3), grid[1][0]);
 	}
 
 	@Override
@@ -76,9 +79,19 @@ public class Grid
 			for (int columnIndex = 0; columnIndex < columnNumber; columnIndex++)
 			{
 				if (grid[columnIndex][lineIndex] == null)
-					gridStringBuf.append("|   ");
+					gridStringBuf.append("|  ");
 				else
-					gridStringBuf.append("| " + grid[columnIndex][lineIndex].getId() + " ");
+					gridStringBuf.append("| " + grid[columnIndex][lineIndex].getId());
+				
+				if(columnIndex >= objective.getLeftUpPosition().getX() && columnIndex < objective.getLeftUpPosition().getX() + objective.getWidth() &&
+						lineIndex >= objective.getLeftUpPosition().getY() && lineIndex < objective.getLeftUpPosition().getY() + objective.getHeight())
+				{
+					gridStringBuf.append("*");
+				}
+				else
+				{
+					gridStringBuf.append(" ");
+				}
 			}
 			gridStringBuf.append("|\n");
 		}
@@ -310,4 +323,6 @@ public class Grid
 
 		throw new IncorrectIdException();
 	}
+	
+	// TODO : testObjective -> win
 }
