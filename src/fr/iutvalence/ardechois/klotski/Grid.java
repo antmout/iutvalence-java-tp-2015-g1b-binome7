@@ -39,6 +39,7 @@ public class Grid
 
 		try
 		{
+			// TODO : extend
 			createPiece(new Position(1, 0), "@", 2, 2);
 			createPiece(new Position(0, 0), "0", 1, 2);
 			createPiece(new Position(3, 0), "1", 1, 2);
@@ -50,29 +51,10 @@ public class Grid
 			createPiece(new Position(0, 4), "7", 1, 1);
 			createPiece(new Position(3, 4), "8", 1, 1);
 		}
-		catch (IncorrectIdException e)
+		catch (IncorrectIdException | OverrideOldPieceException  | InvalidPieceSizeException  | InvalidPiecePositionException  | IdAlreadyUsedException e)
 		{
 			e.printStackTrace();
-			System.exit(1);
-		}
-		catch (OverrideOldPieceException e)
-		{
-			e.printStackTrace();
-			System.exit(1);
-		}
-		catch (InvalidPieceSizeException e)
-		{
-			e.printStackTrace();
-			System.exit(1);
-		}
-		catch (InvalidPiecePositionException e)
-		{
-			e.printStackTrace();
-			System.exit(1);
-		}
-		catch (IdAlreadyUsedException e)
-		{
-			e.printStackTrace();
+			System.err.println("Problem with piece creation.");
 			System.exit(1);
 		}
 
@@ -177,11 +159,10 @@ public class Grid
 	 * 
 	 * @param pieceId
 	 * @param direction
-	 * @throws IncorrectDirectionException
 	 * @throws IncorrectIdException
 	 * @throws ImpossibleMovementException
 	 */
-	public void movePiece(String pieceId, Direction direction) throws IncorrectDirectionException, IncorrectIdException,
+	public void movePiece(String pieceId, Direction direction) throws IncorrectIdException,
 			ImpossibleMovementException
 	{
 		Piece pieceToMove = getPiece(pieceId);
@@ -282,9 +263,6 @@ public class Grid
 
 				break;
 			}
-
-			default :
-				throw new IncorrectDirectionException();
 		}
 	}
 	/**

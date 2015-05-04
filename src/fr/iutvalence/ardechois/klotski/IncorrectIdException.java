@@ -7,6 +7,7 @@ package fr.iutvalence.ardechois.klotski;
  * @version 0.04
  */
 
+@SuppressWarnings("serial")
 public class IncorrectIdException extends Exception
 {
 

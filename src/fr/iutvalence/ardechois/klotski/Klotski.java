@@ -28,14 +28,17 @@ public class Klotski
 	 * Launch the game.
 	 * 
 	 * @throws IncorrectDirectionException
-	 * @throws ImpossibleMovementException 
-	 * @throws IncorrectIdException 
+	 * @throws ImpossibleMovementException
+	 * @throws IncorrectIdException
 	 */
 
-	public void start() throws IncorrectDirectionException, IncorrectIdException, ImpossibleMovementException
+	public void start()
 	{
+		@SuppressWarnings("resource")
 		Scanner commandScanner = new Scanner(System.in);
-		Command currentCommand = new Command("8", "LEFT");
+		Command currentCommand = new Command();
+
+		// TODO : score
 		while (true)
 		{
 			clearConsole();
@@ -47,7 +50,7 @@ public class Klotski
 			currentCommand.idPiece = commandScanner.nextLine();
 
 			System.out.print("Which direction to choose: ");
-			currentCommand.direction = commandScanner.nextLine();
+			currentCommand.direction = commandScanner.nextLine().toUpperCase();
 
 			executeCommand(currentCommand);
 		}
@@ -67,9 +70,9 @@ public class Klotski
 	 * Execute the given command.
 	 * 
 	 * @param command
-	 * @throws IncorrectDirectionException 
+	 *
 	 */
-	private void executeCommand(Command command) throws IncorrectDirectionException, IncorrectIdException, ImpossibleMovementException
+	private void executeCommand(Command command)
 	{
 		try
 		{

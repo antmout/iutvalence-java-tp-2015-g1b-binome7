@@ -18,8 +18,14 @@ public class Command
 	 */
 	public String direction;
 
+	public Command()
+	{
+		this.idPiece = null;
+		this.direction = null;
+	}
+	
 	/**
-	 * Create a new command.
+	 * Create a new command with given id and direction.
 	 * 
 	 * @param idPiece
 	 * @param string
@@ -48,9 +54,10 @@ public class Command
 	 */
 	public Direction getDirectionCommand() throws IncorrectDirectionException
 	{
+		// TODO : collection: map
 		switch (this.direction)
 		{
-			case "UP" :
+			case "UP":
 				return Direction.UP;
 
 			case "DOWN" :

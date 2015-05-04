@@ -17,20 +17,16 @@ public class GameLauncher
 
 	/**
 	 * Main method, start of the application.
-	 * 
-	 * @throws IncorrectDirectionException
-	 * @throws ImpossibleMovementException 
-	 * @throws IncorrectIdException 
 	 */
-	public static void main(String[] args) throws IncorrectDirectionException, IncorrectIdException, ImpossibleMovementException
+	public static void main(String[] args)
 	{
-		try (Scanner playerScanner = new Scanner(System.in))
-		{
-			System.out.print("Entrer votre nom: ");
-			String playerName = playerScanner.nextLine();
+		@SuppressWarnings("resource")
+		Scanner playerScanner = new Scanner(System.in);
+		
+		System.out.print("Entrer votre nom: ");
+		String playerName = playerScanner.nextLine();
 
-			Klotski game = new Klotski(playerName);
-			game.start();
-		}
+		Klotski game = new Klotski(playerName);
+		game.start();
 	}
 }
