@@ -26,7 +26,7 @@ public class GameLauncher
 		System.out.print("Enter your name: ");
 		String playerName = playerScanner.nextLine();
 		
-		System.out.print("Enter the grid type you want (B: basic, D: double): ");
+		System.out.print("Enter the grid type you want (B: basic, D: double, R: reversed): ");
 		String gridType = playerScanner.nextLine();
 
 		try

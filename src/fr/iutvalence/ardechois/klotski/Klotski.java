@@ -31,6 +31,9 @@ public class Klotski
 			case "D": grid = new DoubleKlotskiGrid();
 				break;
 				
+			case "R": grid = new ReversedKlotskiGrid();
+				break;
+				
 			default:
 				throw new InvalidGridTypeException();
 		}
@@ -49,13 +52,12 @@ public class Klotski
 		@SuppressWarnings("resource")
 		Scanner commandScanner = new Scanner(System.in);
 		Command currentCommand = new Command();
-
-		// TODO : score
+		
 		while (grid.hasWin() == false)
 		{
-			clearConsole();
-
+			System.out.println("---------------------------------------");
 			System.out.println(player);
+			System.out.println("Current score: " + player.getCurrentScore());
 			System.out.println(grid);
 
 			System.out.print("Which piece to move: ");
@@ -65,17 +67,14 @@ public class Klotski
 			currentCommand.direction = commandScanner.nextLine().toUpperCase();
 
 			executeCommand(currentCommand);
+			player.increaseCurrentScore();
 		}
-
-	}
-
-	/**
-	 * Clear the console.
-	 */
-	private void clearConsole()
-	{
-		// TODO : clear the console.
-
+		
+		if(grid.hasWin())
+		{
+			player.setBestScore();
+			System.out.println("Well play: you have beat the game! Your score is " + player.getCurrentScore() + " and your best score is " + player.getBestScore());
+		}
 	}
 
 	/**
@@ -103,6 +102,5 @@ public class Klotski
 		{
 			System.out.println("Impossible movement");
 		}
-
 	}
 }

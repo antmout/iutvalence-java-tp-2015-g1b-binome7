@@ -34,6 +34,6 @@ public class BasicKlotskiGrid extends Grid
 			System.exit(1);
 		}
 		
-		objective = new Objective(new Position(1, 1), grid[1][0]);
+		objective = new Objective(new Position(1, 3), grid[1][0]);
 	}
 }
