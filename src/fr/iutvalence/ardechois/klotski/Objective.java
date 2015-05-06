@@ -32,16 +32,27 @@ public class Objective
 		this.height = klotskiPiece.height;
 	}
 
+	/** 
+	 * Get the left up position of the objective.
+	 */
 	public Position getLeftUpPosition()
 	{
 		return this.leftUpPosition;
 	}
 
+	/**
+	 * Get the objective width (should be the klotski width).
+	 * @return width
+	 */
 	public int getWidth()
 	{
 		return this.width;
 	}
 
+	/**
+	 * Get the objective height (should be the klotski height).
+	 * @return height
+	 */
 	public int getHeight()
 	{
 		return this.height;

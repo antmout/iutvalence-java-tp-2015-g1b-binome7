@@ -10,6 +10,9 @@ import java.util.HashMap;
  */
 public class Command
 {
+	/**
+	 * Map of the different directions. The string direction is the key to the Direction object.
+	 */
 	public final HashMap<String, Direction> directionHashMap;
 	
 	/**
@@ -22,6 +25,9 @@ public class Command
 	 */
 	public String direction;
 
+	/**
+	 * Create a default command (null command).
+	 */
 	public Command()
 	{
 		this(null, null);

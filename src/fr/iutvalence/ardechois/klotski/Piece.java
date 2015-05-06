@@ -8,7 +8,14 @@ package fr.iutvalence.ardechois.klotski;
  */
 public class Piece
 {
+	/**
+	 * Lenght that the piece id has to be.
+	 */
 	public static final int ID_LENGHT = 1;
+	/**
+	 * Default id of the <b>Klotski</b>.
+	 */
+	public static final String DEFAULT_ID = "@";
 
 	/** Width of the piece. */
 	public final int width;

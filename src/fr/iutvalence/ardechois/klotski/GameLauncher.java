@@ -23,10 +23,21 @@ public class GameLauncher
 		@SuppressWarnings("resource")
 		Scanner playerScanner = new Scanner(System.in);
 		
-		System.out.print("Entrer votre nom: ");
+		System.out.print("Enter your name: ");
 		String playerName = playerScanner.nextLine();
+		
+		System.out.print("Enter the grid type you want (B: basic, D: double): ");
+		String gridType = playerScanner.nextLine();
 
-		Klotski game = new Klotski(playerName);
-		game.start();
+		try
+		{
+			Klotski game = new Klotski(playerName, gridType);
+			game.start();
+		}
+		catch (InvalidGridTypeException e)
+		{
+			System.err.println("Invalid grid type.");
+			System.exit(1);
+		}
 	}
 }

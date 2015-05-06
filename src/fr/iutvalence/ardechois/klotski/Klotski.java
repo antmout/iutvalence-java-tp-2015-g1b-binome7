@@ -17,11 +17,23 @@ public class Klotski
 
 	/**
 	 * Create a new game.
+	 * @throws InvalidGridTypeException 
 	 */
-	public Klotski(String playerName)
+	public Klotski(String playerName, String gridType) throws InvalidGridTypeException
 	{
 		player = new Player(playerName);
-		grid = new Grid(4, 5);
+		
+		switch(gridType)
+		{
+			case "B": grid = new BasicKlotskiGrid();
+				break;
+				
+			case "D": grid = new DoubleKlotskiGrid();
+				break;
+				
+			default:
+				throw new InvalidGridTypeException();
+		}
 	}
 
 	/**
@@ -39,7 +51,7 @@ public class Klotski
 		Command currentCommand = new Command();
 
 		// TODO : score
-		while (true)
+		while (grid.hasWin() == false)
 		{
 			clearConsole();
 

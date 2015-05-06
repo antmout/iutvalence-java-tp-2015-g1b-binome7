@@ -3,7 +3,7 @@ package fr.iutvalence.ardechois.klotski;
 /**
  * Grid of the game.
  *
- * @author chayc et moutona
+ * @author chayc and moutona
  * @version 0.04
  */
 public class Grid
@@ -14,14 +14,16 @@ public class Grid
 	public static final int DEFAULT_LINES_NUMBER = 10;
 
 	/** Set of Compartment that create the game grid. */
-	private final Piece[][] grid;
+	protected final Piece[][] grid;
 
 	/** Number of the grid lines. */
-	private final int lineNumber;
+	protected final int lineNumber;
 	/** Number of the grid columns. */
-	private final int columnNumber;
-	
-	private final Objective objective;
+	protected final int columnNumber;
+	/**
+	 * Objective that the player have to reach.
+	 */
+	protected Objective objective;
 
 	/** Set the grid with default values. */
 	public Grid()
@@ -38,29 +40,6 @@ public class Grid
 		this.lineNumber = lineNumber;
 
 		this.grid = new Piece[this.columnNumber][this.lineNumber];
-
-		try
-		{
-			// TODO : extend
-			createPiece(new Position(1, 0), "@", 2, 2);
-			createPiece(new Position(0, 0), "0", 1, 2);
-			createPiece(new Position(3, 0), "1", 1, 2);
-			createPiece(new Position(0, 2), "2", 1, 2);
-			createPiece(new Position(3, 2), "3", 1, 2);
-			createPiece(new Position(1, 2), "4", 2, 1);
-			createPiece(new Position(1, 3), "5", 1, 1);
-			createPiece(new Position(2, 3), "6", 1, 1);
-			createPiece(new Position(0, 4), "7", 1, 1);
-			createPiece(new Position(3, 4), "8", 1, 1);
-		}
-		catch (IncorrectIdException | OverrideOldPieceException  | InvalidPieceSizeException  | InvalidPiecePositionException  | IdAlreadyUsedException e)
-		{
-			e.printStackTrace();
-			System.err.println("Problem with piece creation.");
-			System.exit(1);
-		}
-		
-		objective = new Objective(new Position(1, 3), grid[1][0]);
 	}
 
 	@Override
@@ -324,5 +303,28 @@ public class Grid
 		throw new IncorrectIdException();
 	}
 	
-	// TODO : testObjective -> win
+	/** Return true if the klotski is on the objective. */
+	public boolean hasWin()
+	{
+		for (int lineIndex = 0; lineIndex < this.lineNumber; lineIndex++)
+		{
+			for (int columnIndex = 0; columnIndex < this.columnNumber; columnIndex++)
+			{
+				if (grid[columnIndex][lineIndex] != null)
+				{
+					if(grid[columnIndex][lineIndex].getId().equals(Piece.DEFAULT_ID))
+					{
+						if(columnIndex < objective.getLeftUpPosition().getX() || 
+								columnIndex >= objective.getLeftUpPosition().getX()+objective.getWidth() || 
+								lineIndex < objective.getLeftUpPosition().getY() || 
+								lineIndex >= objective.getLeftUpPosition().getY()+objective.getHeight())
+						{
+							return false;
+						}
+					}
+				}		
+			}
+		}
+		return true;
+	}
 }
