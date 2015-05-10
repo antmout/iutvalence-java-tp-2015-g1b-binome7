@@ -2,6 +2,7 @@ package fr.iutvalence.ardechois.klotski;
 
 /**
  * Player objective, where the klotski have to go.
+ * 
  * @author moutona
  *
  */
@@ -19,9 +20,10 @@ public class Objective
 	 * Height of the objective.
 	 */
 	private final int height;
-	
+
 	/**
 	 * Set the objective position and size.
+	 * 
 	 * @param leftUpPosition
 	 * @param klotskiPiece
 	 */
@@ -32,7 +34,7 @@ public class Objective
 		this.height = klotskiPiece.height;
 	}
 
-	/** 
+	/**
 	 * Get the left up position of the objective.
 	 */
 	public Position getLeftUpPosition()
@@ -42,6 +44,7 @@ public class Objective
 
 	/**
 	 * Get the objective width (should be the klotski width).
+	 * 
 	 * @return width
 	 */
 	public int getWidth()
@@ -51,6 +54,7 @@ public class Objective
 
 	/**
 	 * Get the objective height (should be the klotski height).
+	 * 
 	 * @return height
 	 */
 	public int getHeight()

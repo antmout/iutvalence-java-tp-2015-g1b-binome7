@@ -4,7 +4,6 @@ package fr.iutvalence.ardechois.klotski;
  * Player that is currently playing the game.
  *
  * @author chayc
- * @version 0.04
  */
 public class Player
 {
@@ -32,9 +31,10 @@ public class Player
 	{
 		return this.bestScore;
 	}
-	
+
 	/**
 	 * Get the player current score.
+	 * 
 	 * @return bestScore
 	 */
 	public int getCurrentScore()
@@ -66,7 +66,7 @@ public class Player
 	{
 		return String.format("%s: %s.", name, (bestScore == Integer.MAX_VALUE) ? "never finished yed" : bestScore);
 	}
-	
+
 	/**
 	 * Increase the player current score.
 	 */

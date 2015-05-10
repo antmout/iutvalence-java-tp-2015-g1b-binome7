@@ -2,6 +2,7 @@ package fr.iutvalence.ardechois.klotski;
 
 /**
  * Piece size is invalid.
+ * 
  * @author chayc
  *
  */

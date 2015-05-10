@@ -6,7 +6,6 @@ import java.util.Scanner;
  * Allow to launch the application.
  *
  * @author chayc
- * @version 0.04
  */
 public class GameLauncher
 {

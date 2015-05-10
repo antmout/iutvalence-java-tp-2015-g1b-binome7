@@ -4,7 +4,6 @@ package fr.iutvalence.ardechois.klotski;
  * Piece that the player can move.
  * 
  * @author chayc
- * @version 0.04
  */
 public class Piece
 {

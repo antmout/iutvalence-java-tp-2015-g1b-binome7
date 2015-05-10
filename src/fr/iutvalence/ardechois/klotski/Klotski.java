@@ -6,7 +6,6 @@ import java.util.Scanner;
  * Game class, launch the game with start.
  *
  * @author chayc
- * @version 0.04
  */
 public class Klotski
 {
@@ -17,24 +16,28 @@ public class Klotski
 
 	/**
 	 * Create a new game.
-	 * @throws InvalidGridTypeException 
+	 * 
+	 * @throws InvalidGridTypeException
 	 */
 	public Klotski(String playerName, String gridType) throws InvalidGridTypeException
 	{
 		player = new Player(playerName);
-		
-		switch(gridType)
+
+		switch (gridType)
 		{
-			case "B": grid = new BasicKlotskiGrid();
+			case "B" :
+				grid = new BasicKlotskiGrid();
 				break;
-				
-			case "D": grid = new DoubleKlotskiGrid();
+
+			case "D" :
+				grid = new DoubleKlotskiGrid();
 				break;
-				
-			case "R": grid = new ReversedKlotskiGrid();
+
+			case "R" :
+				grid = new ReversedKlotskiGrid();
 				break;
-				
-			default:
+
+			default :
 				throw new InvalidGridTypeException();
 		}
 	}
@@ -52,7 +55,7 @@ public class Klotski
 		@SuppressWarnings("resource")
 		Scanner commandScanner = new Scanner(System.in);
 		Command currentCommand = new Command();
-		
+
 		while (grid.hasWin() == false)
 		{
 			System.out.println("---------------------------------------");
@@ -69,11 +72,12 @@ public class Klotski
 			executeCommand(currentCommand);
 			player.increaseCurrentScore();
 		}
-		
-		if(grid.hasWin())
+
+		if (grid.hasWin())
 		{
 			player.setBestScore();
-			System.out.println("Well play: you have beat the game! Your score is " + player.getCurrentScore() + " and your best score is " + player.getBestScore());
+			System.out.println("Well play: you have beat the game! Your score is " + player.getCurrentScore() + " and your best score is "
+					+ player.getBestScore());
 		}
 	}
 

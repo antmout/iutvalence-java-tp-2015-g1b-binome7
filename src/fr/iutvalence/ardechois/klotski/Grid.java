@@ -4,7 +4,6 @@ package fr.iutvalence.ardechois.klotski;
  * Grid of the game.
  *
  * @author chayc and moutona
- * @version 0.04
  */
 public class Grid
 {
