@@ -1,4 +1,4 @@
-package fr.iutvalence.ardechois.klotski;
+package fr.iutvalence.ardechois.klotski.exceptions;
 
 /**
  * Piece position is <b>not</b> valid: piece is out of bound.
@@ -6,8 +6,10 @@ package fr.iutvalence.ardechois.klotski;
  * @author chayc
  *
  */
-@SuppressWarnings("serial")
 public class InvalidPiecePositionException extends Exception
 {
-
+	/**
+	 * Serial version UID.
+	 */
+	private static final long serialVersionUID = 1L;
 }

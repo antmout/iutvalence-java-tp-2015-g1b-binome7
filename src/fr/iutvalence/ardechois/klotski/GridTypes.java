@@ -6,7 +6,7 @@ package fr.iutvalence.ardechois.klotski;
  * @author chayc and moutona
  */
 
-public enum GridTypes
+enum GridTypes
 {
 	BASIC, DOUBLE, REVERSED;
 }

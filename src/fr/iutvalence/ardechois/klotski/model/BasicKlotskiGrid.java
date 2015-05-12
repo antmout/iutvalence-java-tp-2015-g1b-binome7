@@ -1,4 +1,10 @@
-package fr.iutvalence.ardechois.klotski;
+package fr.iutvalence.ardechois.klotski.model;
+
+import fr.iutvalence.ardechois.klotski.exceptions.IdAlreadyUsedException;
+import fr.iutvalence.ardechois.klotski.exceptions.IncorrectIdException;
+import fr.iutvalence.ardechois.klotski.exceptions.InvalidPiecePositionException;
+import fr.iutvalence.ardechois.klotski.exceptions.InvalidPieceSizeException;
+import fr.iutvalence.ardechois.klotski.exceptions.OverrideOldPieceException;
 
 /**
  * <b>Basic</b> Klotski grid.

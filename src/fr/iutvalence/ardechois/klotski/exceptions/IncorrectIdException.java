@@ -1,4 +1,4 @@
-package fr.iutvalence.ardechois.klotski;
+package fr.iutvalence.ardechois.klotski.exceptions;
 
 /**
  * Exception raised when a piece id is incorrect.
@@ -6,8 +6,10 @@ package fr.iutvalence.ardechois.klotski;
  * @author chayc
  */
 
-@SuppressWarnings("serial")
 public class IncorrectIdException extends Exception
 {
-
+	/**
+	 * Serial version UID.
+	 */
+	private static final long serialVersionUID = 1L;
 }

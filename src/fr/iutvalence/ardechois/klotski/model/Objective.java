@@ -1,4 +1,6 @@
-package fr.iutvalence.ardechois.klotski;
+package fr.iutvalence.ardechois.klotski.model;
+
+
 
 /**
  * Player objective, where the klotski have to go.
@@ -6,7 +8,7 @@ package fr.iutvalence.ardechois.klotski;
  * @author moutona
  *
  */
-public class Objective
+class Objective
 {
 	/**
 	 * Left up position of the objective.

@@ -1,11 +1,11 @@
-package fr.iutvalence.ardechois.klotski;
+package fr.iutvalence.ardechois.klotski.model;
 
 /**
  * Position of an object.
  * 
  * @author chayc
  */
-public class Position
+class Position
 {
 	/** X of the position. */
 	private final int x;

@@ -1,6 +1,7 @@
 package fr.iutvalence.ardechois.klotski;
 
 import java.util.Scanner;
+import fr.iutvalence.ardechois.klotski.exceptions.InvalidGridTypeException;
 
 /**
  * Allow to launch the application.
@@ -19,7 +20,6 @@ public class GameLauncher
 	 */
 	public static void main(String[] args)
 	{
-		@SuppressWarnings("resource")
 		Scanner playerScanner = new Scanner(System.in);
 		
 		System.out.print("Enter your name: ");
@@ -30,8 +30,29 @@ public class GameLauncher
 
 		try
 		{
-			Klotski game = new Klotski(playerName, gridType);
+			Klotski game;
+			
+			switch(gridType)
+			{
+				case "B":
+				case "b":
+					game = new Klotski(playerName, GridTypes.BASIC);
+					break;
+				case "D":
+				case "d":
+					game = new Klotski(playerName, GridTypes.DOUBLE);
+					break;
+				case "R":
+				case "r":
+					game = new Klotski(playerName, GridTypes.REVERSED);
+					break;
+				default:
+					playerScanner.close();
+					throw new InvalidGridTypeException();
+			}
+			
 			game.start();
+			playerScanner.close();
 		}
 		catch (InvalidGridTypeException e)
 		{

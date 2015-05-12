@@ -1,4 +1,4 @@
-package fr.iutvalence.ardechois.klotski;
+package fr.iutvalence.ardechois.klotski.model;
 
 /**
  * Type of the different available directions.

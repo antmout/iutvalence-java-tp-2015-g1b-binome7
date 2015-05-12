@@ -1,6 +1,14 @@
 package fr.iutvalence.ardechois.klotski;
 
 import java.util.Scanner;
+import fr.iutvalence.ardechois.klotski.exceptions.ImpossibleMovementException;
+import fr.iutvalence.ardechois.klotski.exceptions.IncorrectDirectionException;
+import fr.iutvalence.ardechois.klotski.exceptions.IncorrectIdException;
+import fr.iutvalence.ardechois.klotski.exceptions.InvalidGridTypeException;
+import fr.iutvalence.ardechois.klotski.model.BasicKlotskiGrid;
+import fr.iutvalence.ardechois.klotski.model.DoubleKlotskiGrid;
+import fr.iutvalence.ardechois.klotski.model.Grid;
+import fr.iutvalence.ardechois.klotski.model.ReversedKlotskiGrid;
 
 /**
  * Game class, launch the game with start.
@@ -19,21 +27,21 @@ public class Klotski
 	 * 
 	 * @throws InvalidGridTypeException
 	 */
-	public Klotski(String playerName, String gridType) throws InvalidGridTypeException
+	public Klotski(String playerName, GridTypes gridType) throws InvalidGridTypeException
 	{
 		player = new Player(playerName);
 
 		switch (gridType)
 		{
-			case "B" :
+			case BASIC :
 				grid = new BasicKlotskiGrid();
 				break;
 
-			case "D" :
+			case DOUBLE :
 				grid = new DoubleKlotskiGrid();
 				break;
 
-			case "R" :
+			case REVERSED :
 				grid = new ReversedKlotskiGrid();
 				break;
 
@@ -48,7 +56,6 @@ public class Klotski
 
 	public void start()
 	{
-		@SuppressWarnings("resource")
 		Scanner commandScanner = new Scanner(System.in);
 		Command currentCommand = new Command();
 
@@ -71,10 +78,9 @@ public class Klotski
 
 		if (grid.hasWon())
 		{
-			player.setBestScore();
-			System.out.println("Well play: you have beat the game! Your score is " + player.getCurrentScore() + " and your best score is "
-					+ player.getBestScore());
+			System.out.println("Well play: you have beat the game! Your score is " + player.getCurrentScore() + ".");
 		}
+		commandScanner.close();
 	}
 
 	/**

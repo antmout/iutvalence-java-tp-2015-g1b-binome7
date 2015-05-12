@@ -1,6 +1,8 @@
 package fr.iutvalence.ardechois.klotski;
 
 import java.util.HashMap;
+import fr.iutvalence.ardechois.klotski.exceptions.IncorrectDirectionException;
+import fr.iutvalence.ardechois.klotski.model.Direction;
 
 /**
  * Command given by the player in the Application.

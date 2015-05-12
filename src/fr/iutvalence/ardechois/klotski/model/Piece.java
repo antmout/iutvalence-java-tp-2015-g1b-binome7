@@ -1,11 +1,13 @@
-package fr.iutvalence.ardechois.klotski;
+package fr.iutvalence.ardechois.klotski.model;
+
+import fr.iutvalence.ardechois.klotski.exceptions.IncorrectIdException;
 
 /**
  * Piece that the player can move.
  * 
  * @author chayc
  */
-public class Piece
+class Piece
 {
 	/**
 	 * Lenght that the piece id has to be.
