@@ -303,7 +303,7 @@ public class Grid
 	}
 	
 	/** Return true if the klotski is on the objective. */
-	public boolean hasWin()
+	public boolean hasWon()
 	{
 		for (int lineIndex = 0; lineIndex < this.lineNumber; lineIndex++)
 		{

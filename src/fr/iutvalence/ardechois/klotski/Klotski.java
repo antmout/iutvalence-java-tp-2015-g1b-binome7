@@ -44,10 +44,6 @@ public class Klotski
 
 	/**
 	 * Launch the game.
-	 * 
-	 * @throws IncorrectDirectionException
-	 * @throws ImpossibleMovementException
-	 * @throws IncorrectIdException
 	 */
 
 	public void start()
@@ -56,7 +52,7 @@ public class Klotski
 		Scanner commandScanner = new Scanner(System.in);
 		Command currentCommand = new Command();
 
-		while (grid.hasWin() == false)
+		while (grid.hasWon() == false)
 		{
 			System.out.println("---------------------------------------");
 			System.out.println(player);
@@ -73,7 +69,7 @@ public class Klotski
 			player.increaseCurrentScore();
 		}
 
-		if (grid.hasWin())
+		if (grid.hasWon())
 		{
 			player.setBestScore();
 			System.out.println("Well play: you have beat the game! Your score is " + player.getCurrentScore() + " and your best score is "
