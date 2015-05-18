@@ -39,12 +39,12 @@ public class Command
 	 * Create a new command with given id and direction.
 	 * 
 	 * @param idPiece
-	 * @param string
+	 * @param direction
 	 */
-	public Command(String idPiece, String string)
+	public Command(String idPiece, String direction)
 	{
 		this.idPiece = idPiece;
-		this.direction = string;
+		this.direction = direction;
 		
 		this.directionHashMap = new HashMap<String, Direction>();
 		this.directionHashMap.put("UP", Direction.UP);
