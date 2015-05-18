@@ -2,6 +2,8 @@ package fr.iutvalence.ardechois.klotski;
 
 import java.util.Scanner;
 import fr.iutvalence.ardechois.klotski.exceptions.InvalidGridTypeException;
+import fr.iutvalence.ardechois.klotski.view.console.GridTypes;
+import fr.iutvalence.ardechois.klotski.view.console.Klotski;
 
 /**
  * Allow to launch the application.
@@ -20,13 +22,17 @@ public class GameLauncher
 	 */
 	public static void main(String[] args)
 	{
+		consoleStarter();
+	}
+	
+	private static void consoleStarter() {
 		Scanner playerScanner = new Scanner(System.in);
 		
 		System.out.print("Enter your name: ");
 		String playerName = playerScanner.nextLine();
 		
 		System.out.print("Enter the grid type you want (B: basic, D: double, R: reversed): ");
-		String gridType = playerScanner.nextLine();
+		String gridType = playerScanner.nextLine().toUpperCase().trim();
 
 		try
 		{
@@ -35,15 +41,12 @@ public class GameLauncher
 			switch(gridType)
 			{
 				case "B":
-				case "b":
 					game = new Klotski(playerName, GridTypes.BASIC);
 					break;
 				case "D":
-				case "d":
 					game = new Klotski(playerName, GridTypes.DOUBLE);
 					break;
 				case "R":
-				case "r":
 					game = new Klotski(playerName, GridTypes.REVERSED);
 					break;
 				default:

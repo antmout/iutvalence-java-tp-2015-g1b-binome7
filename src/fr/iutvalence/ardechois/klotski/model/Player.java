@@ -1,4 +1,4 @@
-package fr.iutvalence.ardechois.klotski;
+package fr.iutvalence.ardechois.klotski.model;
 
 /**
  * Player that is currently playing the game.

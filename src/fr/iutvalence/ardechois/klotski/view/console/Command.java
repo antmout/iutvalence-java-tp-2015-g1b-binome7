@@ -1,4 +1,4 @@
-package fr.iutvalence.ardechois.klotski;
+package fr.iutvalence.ardechois.klotski.view.console;
 
 import java.util.HashMap;
 import fr.iutvalence.ardechois.klotski.exceptions.IncorrectDirectionException;
