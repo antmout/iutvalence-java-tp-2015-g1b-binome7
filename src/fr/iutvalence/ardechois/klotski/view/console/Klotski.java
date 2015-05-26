@@ -8,6 +8,7 @@ import fr.iutvalence.ardechois.klotski.exceptions.InvalidGridTypeException;
 import fr.iutvalence.ardechois.klotski.model.BasicKlotskiGrid;
 import fr.iutvalence.ardechois.klotski.model.DoubleKlotskiGrid;
 import fr.iutvalence.ardechois.klotski.model.Grid;
+import fr.iutvalence.ardechois.klotski.model.GridTypes;
 import fr.iutvalence.ardechois.klotski.model.Player;
 import fr.iutvalence.ardechois.klotski.model.ReversedKlotskiGrid;
 

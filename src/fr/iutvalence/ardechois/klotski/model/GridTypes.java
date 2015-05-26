@@ -1,4 +1,4 @@
-package fr.iutvalence.ardechois.klotski.view.console;
+package fr.iutvalence.ardechois.klotski.model;
 
 /**
  * Type of the different available grid types.

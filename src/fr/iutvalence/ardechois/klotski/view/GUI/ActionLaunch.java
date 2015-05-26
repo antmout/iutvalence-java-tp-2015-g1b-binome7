@@ -3,29 +3,31 @@ package fr.iutvalence.ardechois.klotski.view.GUI;
 import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.JFrame;
-import fr.iutvalence.ardechois.klotski.view.console.GridTypes;
+import fr.iutvalence.ardechois.klotski.model.GridTypes;
 
 public class ActionLaunch extends AbstractAction
 {
 
-	private int level;
+	/**
+	 * Serial Version UID.
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	private GridTypes gridType;
 	private GUIKlotski controller;
 	private JFrame frame;
 
-	public ActionLaunch(JFrame frame, int d, GUIKlotski controller)
+	public ActionLaunch(JFrame frame, GridTypes gridType, GUIKlotski controller)
 	{
 		this.frame = frame;
-		this.level = d;
+		this.gridType = gridType;
 		this.controller = controller;
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		System.out.println("Basic");
-		controller.initParty(level);
+		controller.initParty(gridType);
 		frame.dispose();
 	}
-
 }

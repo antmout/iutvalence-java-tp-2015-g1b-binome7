@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import fr.iutvalence.ardechois.klotski.model.GridTypes;
 
 public class JFrameMenu extends JFrame
 {
@@ -39,19 +40,19 @@ public class JFrameMenu extends JFrame
 		title.setFont(new Font("Arial", Font.PLAIN, 60));
 		panel.add(title);
 		
-		JButton basic = new JButton(new ActionLaunch(this, 1, controller));
+		JButton basic = new JButton(new ActionLaunch(this, GridTypes.BASIC, controller));
 		basic.setPreferredSize(new Dimension(200, 50));
 		basic.setFont(new Font("Arial", Font.PLAIN, 25));
 		basic.setText("Basic");
 		panel.add(basic);
 		
-		JButton reversed = new JButton(new ActionLaunch(this, 2, controller));
+		JButton reversed = new JButton(new ActionLaunch(this, GridTypes.REVERSED, controller));
 		reversed.setPreferredSize(new Dimension(200, 50));
 		reversed.setFont(new Font("Arial", Font.PLAIN, 25));
 		reversed.setText("Reversed");
 		panel.add(reversed);
 		
-		JButton doubl = new JButton(new ActionLaunch(this, 3, controller));
+		JButton doubl = new JButton(new ActionLaunch(this, GridTypes.DOUBLE, controller));
 		doubl.setPreferredSize(new Dimension(200, 50));
 		doubl.setFont(new Font("Arial", Font.PLAIN, 25));
 		doubl.setText("Double");

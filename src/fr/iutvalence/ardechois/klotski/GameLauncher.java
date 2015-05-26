@@ -3,9 +3,9 @@ package fr.iutvalence.ardechois.klotski;
 import java.util.Scanner;
 import javax.swing.JFrame;
 import fr.iutvalence.ardechois.klotski.exceptions.InvalidGridTypeException;
+import fr.iutvalence.ardechois.klotski.model.GridTypes;
 import fr.iutvalence.ardechois.klotski.view.GUI.GUIKlotski;
 import fr.iutvalence.ardechois.klotski.view.GUI.JFrameMenu;
-import fr.iutvalence.ardechois.klotski.view.console.GridTypes;
 import fr.iutvalence.ardechois.klotski.view.console.Klotski;
 
 /**
