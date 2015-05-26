@@ -1,7 +1,6 @@
 /**
+ * Package that contains all views.
  * 
- */
-/**
  * @author chayc
  *
  */
