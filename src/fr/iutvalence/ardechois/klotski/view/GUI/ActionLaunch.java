@@ -27,7 +27,7 @@ public class ActionLaunch extends AbstractAction
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		controller.initParty(gridType);
+		controller.initGame(gridType);
 		frame.dispose();
 	}
 }

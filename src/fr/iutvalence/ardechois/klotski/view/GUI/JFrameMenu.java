@@ -3,9 +3,6 @@ package fr.iutvalence.ardechois.klotski.view.GUI;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.AbstractAction;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -26,8 +23,10 @@ public class JFrameMenu extends JFrame
 	public JFrameMenu(GUIKlotski controller)
 	{
 		super(JFrameMenu.TITLE);
-		
+
 		setSize(JFrameMenu.WIDTH, JFrameMenu.HEIGHT);
+		
+		setLocationRelativeTo(null);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);

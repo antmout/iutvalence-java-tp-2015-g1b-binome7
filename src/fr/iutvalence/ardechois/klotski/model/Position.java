@@ -5,7 +5,7 @@ package fr.iutvalence.ardechois.klotski.model;
  * 
  * @author chayc
  */
-class Position
+public class Position
 {
 	/** X of the position. */
 	private final int x;

@@ -47,6 +47,24 @@ public class Grid
 
 		this.grid = new Piece[this.columnNumber][this.lineNumber];
 	}
+	
+	/**
+	 * Get the grid line number.
+	 * @return lineNumber
+	 */
+	public int getLineNumber()
+	{
+		return this.lineNumber;
+	}
+
+	/**
+	 * Get the grid column number.
+	 * @return columnNumber
+	 */
+	public int getColumnNumber()
+	{
+		return this.columnNumber;
+	}
 
 	@Override
 	public String toString()
@@ -287,6 +305,15 @@ public class Grid
 		}
 		throw new IncorrectIdException();
 	}
+	
+	public String getPieceId(Position pos)
+	{
+		if(grid[pos.getX()][pos.getY()] != null)
+			return grid[pos.getX()][pos.getY()].getId();
+		
+		return " ";
+	}
+	
 	/**
 	 * Get the piece left up position with a given Id.
 	 * 
